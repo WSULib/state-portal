@@ -1,24 +1,39 @@
-# README
+# Michigan Service Hub State Portal Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environment Setup
 
-Things you may want to cover:
+* Install gems: `bundle install`
+* Setup database:
+    * Create database: `rake db:create`
+    * Create tables: `rake db:migrate`
+* Setup Solr:
+    * Build OAIPMH-Solr plugin: `mvn package`
+    * Create plugin folder in `solr-instance` directory: `mkdir -p ./solr-instance/contrib/oaipmh/lib`
+    * Copy plugin jar to the plugin lib folder
+    
+## Running the environment
 
-* Ruby version
+* Run Solr server: `bundle exec solr_wrapper`
+* Optional: index some test data: `rake solr:marc:index_test_data`
+* Run application: `rails server` 
 
-* System dependencies
+## Importing data
 
-* Configuration
+* Visit the [Data Import](http://127.0.0.1:8983/solr/#/blacklight-core/dataimport//dataimport) page
+* Execute the import
 
-* Database creation
+# Adding a field to the dataset
 
-* Database initialization
+* Add field to import config: `data-config.xml`
+* Add field to schema: `schema.xml`
+* Add field to index or show page: `catalog_controller.rb`
 
-* How to run the test suite
+If you want to add the field to the search results list:
 
-* Services (job queues, cache servers, search engines, etc.)
+* Add field to `solrconfig.xml` in the `fl` section for the search requestHandler
 
-* Deployment instructions
+* Reindex all the data
+    * Delete the Solr `blacklight-core`
+    * Restart Solr to regenerate the core
+    * Reindex the data: `http://127.0.0.1:8983/solr/#/blacklight-core/dataimport//dataimport`
 
-* ...

@@ -1,5 +1,7 @@
 # Place any default configuration for solr_wrapper here
 # port: 8983
+instance_dir: solr-instance
 collection:
   dir: solr/config/
   name: blacklight-core
+  persist: true

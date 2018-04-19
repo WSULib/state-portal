@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  web:
+    build: .
+    env_file: .env
+    command: bundle exec puma -C config/puma.rb
+    volumes:
+      - .:/app
+      - bundle:/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+volumes:
+  bundle:
+  pgdata:

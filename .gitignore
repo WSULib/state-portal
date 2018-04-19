@@ -24,3 +24,6 @@
 
 # Ignore solr_wrapper instance
 solr-instance
+
+# Ignore files with sensitive credentials
+.env

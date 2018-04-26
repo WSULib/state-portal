@@ -37,3 +37,35 @@ If you want to add the field to the search results list:
     * Restart Solr to regenerate the core
     * Reindex the data: `http://127.0.0.1:8983/solr/#/blacklight-core/dataimport//dataimport`
 
+# Server Docker setup
+
+## Installation
+
+* [Install Docker Machine](https://docs.docker.com/machine/install-machine/)
+* Setup passwordless sudo for the [generic Docker Machine driver](https://docs.docker.com/machine/drivers/generic/)
+* Create the Docker Machine on the server: `docker-machine create --driver generic --generic-ip-address=159.65.230.32 --generic-ssh-key ~/.ssh/id_rsa --generic-ssh-user=portal spotlight`
+* Check if the machine you created exists: `docker-machine env spotlight`
+
+## Initial setup
+
+* Set up environment variables to remote docker machine: `eval $(docker-machine env wsu)`
+* Deploy the application: `docker-compose up --no-start`
+* Create the Postgres database:
+    * `docker-compose run web bundle exec rake db:create`
+    * `docker-compose run web bundle exec rake db:migrate`
+* Create initial admin user: `docker-compose run web bundle exec rake spotlight:initialize`
+* Run the application in production mode: `docker-compose up -d`
+
+## Initialize Solr core
+
+* Copy base configuration files to the container: `docker cp -L solr/configsets/. $(docker ps -q -f "name=spotlight_solr"):/opt/solr/server/solr/configsets`
+* Create the Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c [CORE_NAME:(default: blacklight-core)] -d [CONFIG_NAME]`
+    * CONFIG_NAME can be any folder name in `solr/configsets`. There is a set of config files for each data source to allow creation of multiple cores for different sources and sets: combine_test, wsudor_dpla, and full_michigan_state_portal
+
+# Server Management
+
+List containers: `docker ps`
+SSH into container: `docker exec -t -i [CONTAINER_ID] /bin/bash`
+Create Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c blacklight-core -d spotlight`
+Delete Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr delete -c blacklight-core`
+

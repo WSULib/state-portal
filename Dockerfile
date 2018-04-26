@@ -1,11 +1,13 @@
-FROM ruby:2.5
+FROM ruby:2.5-alpine
 
-# Install dependencies:
-# - build-essential: To ensure certain gems can be compiled
-# - nodejs: Compile assets
-# - libpq-dev: Communicate with postgres through the postgres gem
-# - postgresql-client-9.4: In case you want to talk directly to postgres
-RUN apt-get update && apt-get install -qq -y build-essential nodejs libpq-dev postgresql-client-9.6 --fix-missing --no-install-recommends
+# Install dependencies
+RUN apk add --no-cache \
+      git \
+      build-base \
+      nodejs \
+      tzdata \
+      postgresql-dev \
+      imagemagick
 
 # Set an environment variable to store where the app is installed to inside
 # of the Docker image.

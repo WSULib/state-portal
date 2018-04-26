@@ -8,13 +8,16 @@ services:
     build: .
     env_file: .env
     command: bundle exec puma -C config/puma.rb
-    volumes:
-      - .:/app
-      - bundle:/bundle
     ports:
-      - "3000:3000"
+      - "80:3000"
     depends_on:
       - db
+  solr:
+    build: ./solr
+    ports:
+    - "8983:8983"
+    volumes:
+    - solrdata:/opt/solr/server/solr
 volumes:
-  bundle:
   pgdata:
+  solrdata:

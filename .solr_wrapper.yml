@@ -2,6 +2,6 @@
 # port: 8983
 instance_dir: solr-instance
 collection:
-  dir: solr/config/
+  dir: solr/configsets/combine_test
   name: blacklight-core
   persist: true

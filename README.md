@@ -48,7 +48,7 @@ If you want to add the field to the search results list:
 
 ## Initial setup
 
-* Set up environment variables to remote docker machine: `eval $(docker-machine env wsu)`
+* Set up environment variables to remote docker machine: `eval $(docker-machine env spotlight)`
 * Deploy the application: `docker-compose up --no-start`
 * Create the Postgres database:
     * `docker-compose run web bundle exec rake db:create`
@@ -69,3 +69,7 @@ SSH into container: `docker exec -t -i [CONTAINER_ID] /bin/bash`
 Create Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c blacklight-core -d spotlight`
 Delete Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr delete -c blacklight-core`
 
+# Adding a new configset
+
+* Copy base configuration files to the container: `docker cp -L solr/configsets/. $(docker ps -q -f "name=spotlight_solr"):/opt/solr/server/solr/configsets`
+* Create the Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c [CORE_NAME:(default: blacklight-core)] -d [CONFIG_NAME]`

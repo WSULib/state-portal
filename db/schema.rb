@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417145000) do
+ActiveRecord::Schema.define(version: 20180421212516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,16 @@ ActiveRecord::Schema.define(version: 20180417145000) do
     t.index ["exhibit_id"], name: "index_spotlight_filters_on_exhibit_id"
   end
 
+  create_table "spotlight_languages", id: :serial, force: :cascade do |t|
+    t.string "locale", null: false
+    t.boolean "public"
+    t.string "text"
+    t.integer "exhibit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exhibit_id"], name: "index_spotlight_languages_on_exhibit_id"
+  end
+
   create_table "spotlight_locks", id: :serial, force: :cascade do |t|
     t.string "on_type"
     t.integer "on_id"
@@ -208,7 +218,11 @@ ActiveRecord::Schema.define(version: 20180417145000) do
     t.boolean "display_sidebar"
     t.boolean "display_title"
     t.integer "thumbnail_id"
+    t.string "locale", default: "en"
+    t.integer "default_locale_page_id"
+    t.index ["default_locale_page_id"], name: "index_spotlight_pages_on_default_locale_page_id"
     t.index ["exhibit_id"], name: "index_spotlight_pages_on_exhibit_id"
+    t.index ["locale"], name: "index_spotlight_pages_on_locale"
     t.index ["parent_page_id"], name: "index_spotlight_pages_on_parent_page_id"
     t.index ["slug", "scope"], name: "index_spotlight_pages_on_slug_and_scope", unique: true
   end
@@ -323,6 +337,7 @@ ActiveRecord::Schema.define(version: 20180417145000) do
     t.integer "exhibit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["exhibit_id", "key", "locale"], name: "index_translations_on_exhibit_id_and_key_and_locale", unique: true
     t.index ["exhibit_id"], name: "index_translations_on_exhibit_id"
   end
 

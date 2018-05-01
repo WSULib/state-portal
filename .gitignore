@@ -26,4 +26,5 @@
 solr-instance
 
 # Ignore files with sensitive credentials
-.env
+.env*
+!.env.example

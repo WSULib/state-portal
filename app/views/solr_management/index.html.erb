@@ -1,0 +1,11 @@
+<p>
+  Reindexing status: <%= @status %>
+</p>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="<%= @completed %>" aria-valuemin="0" aria-valuemax="<%= @total %>" style="width: <%= @progress %>%;">
+    <%= @progress %>%
+  </div>
+</div>
+
+<%= button_to "Update", :action => "update", :method => :post %>
+<%= button_to "Reindex", :action => "reindex", :method => :post %>

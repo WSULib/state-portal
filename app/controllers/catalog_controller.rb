@@ -54,6 +54,7 @@ class CatalogController < ApplicationController
     config.add_index_field 'data_provider_ssim', label: 'Data Provider'
     config.add_index_field 'collection_ssim', label: 'Collection'
 
+    config.add_show_field 'full_image_url_ssm', label: 'Thumbnail', helper_method: :solr_url_to_image
     config.add_show_field 'collection_ssim', label: 'Collection', link_to_search: true
     config.add_show_field 'spotlight_upload_description_tesim', label: 'Abstract'
     config.add_show_field 'note_tesim', label: 'Notes'

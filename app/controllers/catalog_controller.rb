@@ -4,8 +4,8 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
 
   configure_blacklight do |config|
-          config.show.oembed_field = :oembed_url_ssm
-          config.show.partials.insert(1, :oembed)
+    config.show.oembed_field = :oembed_url_ssm
+    config.show.partials.insert(1, :oembed)
 
     config.view.gallery.partials = [:index_header, :index]
     config.view.masonry.partials = [:index]
@@ -35,11 +35,23 @@ class CatalogController < ApplicationController
 
     config.add_sort_field 'relevance', sort: 'score desc', label: 'Relevance'
 
+    config.add_facet_field 'data_provider_ssim', label: 'Data Provider', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'collection_ssim', label: 'Collection', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'language_ssim', label: 'Language', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'type_ssim', label: 'Type', limit: 20, index_range: 'A'..'Z'
+    # config.add_facet_field 'pub_date', label: 'Publication Year', single: true
+    config.add_facet_field 'place_ssim', label: 'Place', limit: 20, index_range: 'A'..'Z'
+    # config.add_facet_field 'subject', label: 'Subject', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'creator_ssim', label: 'Creator', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'format_ssim', label: 'Format'
+
+    config.add_facet_fields_to_solr_request!
+
     config.add_index_field 'spotlight_upload_description_tesim', label: 'Abstract'
     config.add_index_field 'note_tesim', label: 'Notes'
     config.add_index_field 'date_issued_dr', label: 'Date Issued'
     config.add_index_field 'date_created_dr', label: 'Date Created'
-    config.add_index_field 'data_provider_facet', label: 'Data Provider'
+    config.add_index_field 'data_provider_ssim', label: 'Data Provider'
     config.add_index_field 'collection_ssim', label: 'Collection'
 
     config.add_show_field 'collection_ssim', label: 'Collection', link_to_search: true

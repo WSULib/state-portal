@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   mount Riiif::Engine => '/images', as: 'riiif'
   # root to: 'spotlight/exhibits#index' # spotlight root path
   root to: "catalog#index" # blacklight root path
-  mount Spotlight::Engine, at: 'spotlight'
+  mount Spotlight::Engine, at: 'exhibits'
   mount Blacklight::Engine => '/'
     concern :searchable, Blacklight::Routes::Searchable.new
 

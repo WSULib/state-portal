@@ -1,16 +1,4 @@
 module Spotlight
-  class FeaturedImageUploader < CarrierWave::Uploader::Base
-    storage Spotlight::Engine.config.uploader_storage
-
-    def extension_whitelist
-      Spotlight::Engine.config.allowed_upload_extensions + Spotlight::Engine.config.allowed_file_extensions
-    end
-
-    def store_dir
-      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    end
-  end
-
   class UploadSolrDocumentBuilder < SolrDocumentBuilder
     delegate :compound_id, to: :resource
 
@@ -58,7 +46,7 @@ module Spotlight
     end
 
     def is_image?
-      Spotlight::Engine.config.allowed_upload_extensions.include?(resource.upload.image.file.extension.downcase)
+      Spotlight::Engine.config.allowed_image_extensions.include?(resource.upload.image.file.extension.downcase)
     end
   end
 

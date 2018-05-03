@@ -48,7 +48,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'blacklight', ' ~> 6.0'
-gem 'blacklight-spotlight', github: 'projectblacklight/spotlight', branch: 'master'
+gem 'blacklight-spotlight', github: 'WSULib/spotlight', branch: 'master'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end

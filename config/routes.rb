@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
-  # root to: 'spotlight/exhibits#index' # spotlight root path
-  root to: "catalog#index" # blacklight root path
+  root to: 'spotlight/home_pages#show', exhibit_id: 'default' # spotlight root path
+  # root to: "catalog#index" # blacklight root path
   mount Spotlight::Engine, at: 'exhibits'
   mount Blacklight::Engine => '/'
     concern :searchable, Blacklight::Routes::Searchable.new

@@ -54,6 +54,7 @@ If you want to add the field to the search results list:
     * `docker-compose -p spotlight run web bundle exec rake db:create`
     * `docker-compose -p spotlight run web bundle exec rake db:migrate`
 * Create initial admin user: `docker-compose -p spotlight run web bundle exec rake spotlight:initialize`
+* Create default exhibit: `docker-compose -p spotlight run web bundle exec rake db:seed`
 * Run the application in production mode: `docker-compose -p spotlight up -d`
 
 ## Initialize Solr core

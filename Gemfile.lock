@@ -364,9 +364,6 @@ GEM
     tilt (2.0.8)
     tophat (2.3.1)
       actionpack (>= 3.0.0)
-    turbolinks (5.1.1)
-      turbolinks-source (~> 5.1)
-    turbolinks-source (5.1.0)
     twitter-text (1.14.7)
       unf (~> 0.1.0)
     twitter-typeahead-rails (0.11.1.pre.corejavascript)
@@ -426,7 +423,6 @@ DEPENDENCIES
   solr_wrapper (>= 0.3)
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)

@@ -6,16 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+default_exhibits = [
+  {slug: 'default', title: 'Michigan Digital Library Portal'},
+  {slug: 'collections', title: 'Collections'},
+  {slug: 'topics', title: 'Topics'},
+  {slug: 'institutions', title: 'Institutions'}
+]
+
 admin_user = Spotlight::Site.first.roles.where(role: 'admin').first.user
 
 if admin_user.present?
-  exhibit = Spotlight::Exhibit.find_or_create_by(title: 'Michigan Digital Library Portal',
-                                                 slug: 'default',
-                                                 published: true,
-                                                 site: Spotlight::Site.first
-  )
+  default_exhibits.each do |exhibit_info|
+    exhibit = Spotlight::Exhibit.find_or_create_by(title: exhibit_info[:title],
+                                                   slug: exhibit_info[:slug],
+                                                   published: true,
+                                                   hidden: true,
+                                                   site: Spotlight::Site.first
+    )
 
-  Spotlight::Role.find_or_create_by(user: admin_user, role: 'admin', resource_id: exhibit.id, resource_type: 'Spotlight::Exhibit')
+    Spotlight::Role.find_or_create_by(user: admin_user, role: 'admin', resource_id: exhibit.id, resource_type: 'Spotlight::Exhibit')
+  end
 else
   puts 'Create an admin user first: rake spotlight:initialize'
 end

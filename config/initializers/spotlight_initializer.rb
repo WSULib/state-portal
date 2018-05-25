@@ -44,8 +44,8 @@ Spotlight::Engine.config.thumbnail_field = :full_image_url_ssm
 # ]
 # Spotlight::Engine.config.upload_title_field = nil # OpenStruct.new(...)
 # Spotlight::Engine.config.uploader_storage = :file
-Spotlight::Engine.config.allowed_upload_extensions = %w(jpg jpeg png xlsx docx pdf)
-Spotlight::Engine.config.allowed_image_extensions = %w(jpg jpeg png)
+Spotlight::Engine.config.allowed_upload_extensions = ENV['UPLOAD_EXTENSIONS'].split(' ')
+Spotlight::Engine.config.allowed_image_extensions = ENV['IMAGE_EXTENSIONS'].split(' ')
 
 # Spotlight::Engine.config.featured_image_thumb_size = [400, 300]
 # Spotlight::Engine.config.featured_image_square_size = [400, 400]

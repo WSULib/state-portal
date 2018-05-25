@@ -1,3 +1,6 @@
 .git
 .dockerignore
 solr-instance
+log
+public/uploads
+tmp

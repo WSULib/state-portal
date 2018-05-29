@@ -1,0 +1,46 @@
+<dataConfig>
+  <dataSource type="edu.stsci.registry.solr.OAIPMHDataSource"/>
+  <document>
+    <entity name="record"
+            url="replace me: set url"
+            processor="edu.stsci.registry.solr.OAIPMHEntityProcessor"
+            forEach="/OAI-PMH/ListRecords/record"
+            prefix="MODS"
+            idCol="identifier"
+            set="replace/delete me: optional">
+
+      <field column="identifier" xpath="header/identifier"/>
+      <field column="set" xpath="header/setSpec"/>
+
+      <field column="full_title_tesim" xpath="metadata/mods/titleInfo/title"/>
+      <field column="rights_tesim" xpath="metadata/mods/accessCondition[@type='use and reproduction']"/>
+      <field column="data_provider_ssim" xpath="metadata/mods/recordInfo/recordContentSource"/>
+      <field column="url_ssm" xpath="metadata/mods/location/url[@usage='primary']"/>
+      <field column="full_image_url_ssm" xpath="metadata/mods/location/url[@access='preview']"/>
+
+      <field column="collection_ssim" xpath="metadata/mods/relatedItem[@type='host']/titleInfo/title"/>
+      <field column="language_ssim" xpath="metadata/mods/language/languageTerm"/>
+      <field column="type_ssim" xpath="metadata/mods/typeOfResource"/>
+      <field column="datestamp_dt" xpath="header/datestamp" dateTimeFormat="yyyy-MM-dd"/>
+      <field column="date_issued_dr" xpath="metadata/mods/originInfo/dateIssued" dateTimeFormat="yyyy-MM-dd" dateRange="true"/>
+      <field column="date_created_dr" xpath="metadata/mods/originInfo/dateCreated" dateTimeFormat="yyyy-MM-dd" dateRange="true"/>
+      <field column="place_ssim" xpath="metadata/mods/subject/geographic"/>
+
+      <field column="subject_topic_ssim" xpath="metadata/mods/subject/topic"/>
+      <field column="subject_name_ssim" xpath="metadata/mods/subject/name/namePart"/>
+      <field column="subject_genre_ssim" xpath="metadata/mods/subject/genre"/>
+      <field column="subject_title_ssim" xpath="metadata/mods/subject/titleInfo/title"/>
+
+      <field column="creator_ssim" xpath="metadata/mods/name/namePart[../role/roleTerm/text() = 'Creator']"/>
+      <field column="contributor_ssim" xpath="metadata/mods/name/namePart[../role/roleTerm/text() = 'Contributor']"/>
+      <field column="format_ssim" xpath="metadata/mods/physicalDescription/form"/>
+      <field column="genre_ssim" xpath="metadata/mods/genre"/>
+      <field column="publisher_ssim" xpath="metadata/mods/originInfo/publisher"/>
+
+      <field column="extent_ssim" xpath="metadata/mods/physicalDescription/extent"/>
+      <field column="spotlight_upload_description_tesim" xpath="metadata/mods/abstract"/>
+      <field column="note_tesim" xpath="metadata/mods/note"/>
+    </entity>
+  </document>
+</dataConfig> 
+

@@ -26,7 +26,7 @@ class CatalogController < ApplicationController
     #
     # solr field configuration for search results/index views
     config.index.title_field = 'full_title_tesim'
-    config.index.display_type_field = 'content_metadata_type_ssm'
+    config.index.display_type_field = Spotlight::Engine.config.display_type_field
     config.index.thumbnail_field = Spotlight::Engine.config.thumbnail_field
 
     config.view.gallery.partials = [:index_header, :index]

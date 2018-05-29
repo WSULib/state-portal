@@ -35,6 +35,7 @@ Spotlight::Engine.config.default_filter_field = 'default_spotlight_collection'
 # Spotlight::Engine.config.resource_global_id_field = :"#{config.solr_fields.prefix}spotlight_resource_id#{config.solr_fields.string_suffix}"
 # Spotlight::Engine.config.full_image_field = :full_image_url_ssm
 Spotlight::Engine.config.thumbnail_field = :full_image_url_ssm
+Spotlight::Engine.config.display_type_field = :content_metadata_type_ssm
 
 # ==> Uploaded item configuration
 # Spotlight::Engine.config.upload_fields = [

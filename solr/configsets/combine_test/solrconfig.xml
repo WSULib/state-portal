@@ -29,6 +29,11 @@
     <processor class="edu.stsci.registry.solr.UUIDHashUpdateProcessorFactory">
       <str name="fieldName">identifier</str>
     </processor>
+    <processor class="edu.stsci.registry.solr.GeocodeUpdateProcessorFactory">
+      <str name="placenameField">place_ssim</str>
+      <str name="coordinatesField">coordinates_bbox</str>
+      <str name="geojsonField">geojson_ssim</str>
+    </processor>
     <processor class="solr.LogUpdateProcessorFactory"/>
     <processor class="solr.RunUpdateProcessorFactory"/>
   </updateRequestProcessorChain>

@@ -30,7 +30,7 @@
     <!-- default_spotlight_collection is used to filter documents for Spotlight, use a filter for the default value to get all documents -->
     <field name="default_spotlight_collection" type="boolean" indexed="true" stored="true" default="true"/>
 
-    <dynamicField name="*_bbox"   type="location_rpt" stored="true" indexed="true"/>
+    <dynamicField name="*_bbox"   type="location_rpt" stored="true" indexed="true" multiValued="true" />
     <dynamicField name="*spell" type="textSpell" indexed="true" stored="false" multiValued="true" />
     <!-- NOTE:  not all possible Solr field types are represented in the dynamic fields -->
 

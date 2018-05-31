@@ -2,6 +2,8 @@
 # Simplified catalog controller
 class CatalogController < ApplicationController
   include Blacklight::Catalog
+  include BlacklightMaps::ControllerOverride
+
   helper Openseadragon::OpenseadragonHelper
   before_action :set_paper_trail_whodunnit
 
@@ -34,6 +36,24 @@ class CatalogController < ApplicationController
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
     config.show.partials.insert(1, :openseadragon)
+
+    ## blacklight-maps configuration default values
+    config.view.maps.geojson_field = "geojson_ssim"
+    config.view.maps.placename_property = "placename"
+    config.view.maps.coordinates_field = "coordinates_bbox"
+    config.view.maps.search_mode = "placename" # or "coordinates"
+    config.view.maps.spatial_query_dist = 0.5
+    config.view.maps.placename_field = "place_ssim"
+    config.view.maps.facet_mode = "geojson" # or "coordinates"
+    config.view.maps.tileurl = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    config.view.maps.mapattribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+    config.view.maps.maxzoom = 18
+    config.view.maps.show_initial_zoom = 5
+
+    config.add_facet_field 'geojson_ssim', :limit => -2, :label => 'Coordinates', :show => false
+    
+    # add :show_maplet to the show partials array
+    config.show.partials << :show_maplet
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display

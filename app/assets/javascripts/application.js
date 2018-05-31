@@ -15,5 +15,6 @@
 // Required by Blacklight
 //= require jquery
 //= require blacklight/blacklight
+//= require blacklight-maps
 
 //= require_tree .

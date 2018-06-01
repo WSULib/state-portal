@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper Openseadragon::OpenseadragonHelper
+  helper_method :is_gallery_view?
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
   include Spotlight::Controller
@@ -13,5 +14,9 @@ class ApplicationController < ActionController::Base
 
   def set_raven_context
     Raven.user_context(id: current_user.id) if current_user
+  end
+
+  def is_gallery_view?(context, *args)
+    params.dig(:view) == 'gallery'
   end
 end

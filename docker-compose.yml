@@ -13,7 +13,11 @@ services:
     depends_on:
       - db
   solr:
-    build: ./solr
+    build:
+      context: ./solr
+      dockerfile: Dockerfile
+      args:
+        GEOLOCATION_API_KEY: "${GEOLOCATION_API_KEY}"
     ports:
     - "8983:8983"
     volumes:

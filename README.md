@@ -66,7 +66,7 @@ If you want to add the field to the search results list:
 # Server Management
 
 List containers: `docker ps`
-SSH into container: `docker exec -t -i [CONTAINER_ID] /bin/bash`
+SSH into container: `docker exec -t -i $(docker ps -q -f "name=spotlight_solr") /bin/bash`
 Create Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c blacklight-core -d spotlight`
 Delete Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr delete -c blacklight-core`
 

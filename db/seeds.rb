@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 default_exhibits = [
-  {slug: 'default', title: 'Michigan Digital Library Portal'},
-  {slug: 'collections', title: 'Collections'},
-  {slug: 'topics', title: 'Topics'},
-  {slug: 'institutions', title: 'Institutions'}
+  {slug: 'default', title: 'Michigan Digital Library Portal', hidden: false},
+  {slug: 'collections', title: 'Collections', hidden: true},
+  {slug: 'topics', title: 'Topics', hidden: true},
+  {slug: 'institutions', title: 'Institutions', hidden: true}
 ]
 
 admin_user = Spotlight::Site.first.roles.where(role: 'admin').first.user
@@ -20,7 +20,7 @@ if admin_user.present?
     exhibit = Spotlight::Exhibit.find_or_create_by(title: exhibit_info[:title],
                                                    slug: exhibit_info[:slug],
                                                    published: true,
-                                                   hidden: true,
+                                                   hidden: exhibit_info[:hidden],
                                                    site: Spotlight::Site.first
     )
 

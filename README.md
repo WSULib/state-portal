@@ -74,3 +74,31 @@ Delete Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr
 
 * Copy base configuration files to the container: `docker cp -L solr/configsets/. $(docker ps -q -f "name=spotlight_solr"):/opt/solr/server/solr/configsets`
 * Create the Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c [CORE_NAME:(default: blacklight-core)] -d [CONFIG_NAME]`
+
+# Build and deploy all containers
+
+`docker-compose -p spotlight up --build -d`
+
+# Build and deploy new version of a container
+
+`docker-compose -p spotlight up --build -d [CONTAINER_NAME]`
+
+# Updating a core
+
+* Updating schema using Solr API: https://lucene.apache.org/solr/guide/7_3/schema-api.html
+    * Updating the schema usually requires a reindex of the data
+```
+curl -X POST -H 'Content-type:application/json' --data-binary '{
+"replace-dynamic-field":{
+   "name":"*_bbox",
+   "type":"location_rpt",
+   "stored":true,
+   "indexed":true,
+   "multiValued":true }
+}' http://159.65.230.32:8983/solr/um/schema
+```
+* Updating `solrconfig.xml`: `docker cp -L solr/configsets/[CORE_NAME]/solrconfig.xml $(docker ps -q -f "name=spotlight_solr"):/opt/solr/server/solr/[CORE_NAME]/conf/solrconfig.xml`
+* Reload core: https://lucene.apache.org/solr/guide/7_3/coreadmin-api.html#CoreAdminAPI-RELOAD
+```
+curl "http://159.65.230.32:8983/solr/admin/cores?action=RELOAD&core=[CORE_NAME]"
+```

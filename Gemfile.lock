@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/WSULib/spotlight.git
-  revision: 5cc9ca9e466aad1c2eca25d25a1284942e1fc7d9
+  revision: 4a0155fe3810abd5643ad5d96e2c30be51a6808b
   branch: master
   specs:
     blacklight-spotlight (2.0.0.rc4)
@@ -248,7 +248,7 @@ GEM
     openseadragon (0.4.0)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    paper_trail (9.1.0)
+    paper_trail (9.1.1)
       activerecord (>= 4.2, < 5.3)
       request_store (~> 1.1)
     pg (1.0.0)

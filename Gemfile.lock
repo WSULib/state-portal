@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/WSULib/blacklight-maps.git
-  revision: cee8f1be8300f657cb35a6fb2aa79bcd83d90a66
+  revision: 2c7924a8cf53bf21883cb66e2725f2de5fe4a58a
   branch: master
   specs:
     blacklight-maps (0.5.0)

@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/WSULib/blacklight-maps.git
+  revision: cee8f1be8300f657cb35a6fb2aa79bcd83d90a66
+  branch: master
+  specs:
+    blacklight-maps (0.5.0)
+      blacklight (>= 6.1.0)
+      bootstrap-sass (~> 3.2)
+      leaflet-markercluster-rails
+      leaflet-rails
+      rails
+
+GIT
   remote: git://github.com/WSULib/spotlight.git
   revision: 4a0155fe3810abd5643ad5d96e2c30be51a6808b
   branch: master
@@ -87,7 +99,7 @@ GEM
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
     arel (8.0.0)
-    autoprefixer-rails (8.5.2)
+    autoprefixer-rails (8.6.0)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -109,12 +121,6 @@ GEM
       blacklight (~> 6.3)
       bootstrap-sass (~> 3.0)
       openseadragon (>= 0.2.0)
-      rails
-    blacklight-maps (0.5.0)
-      blacklight (>= 6.1.0)
-      bootstrap-sass (~> 3.2)
-      leaflet-markercluster-rails
-      leaflet-rails
       rails
     blacklight-oembed (0.2.0)
       blacklight (>= 5.0, < 7)
@@ -174,7 +180,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.12.2)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.9.23)
+    ffi (1.9.25)
     friendly_id (5.2.4)
       activerecord (>= 4.0.0)
     github-markup (2.0.0)
@@ -405,7 +411,7 @@ PLATFORMS
 DEPENDENCIES
   blacklight (~> 6.0)
   blacklight-gallery (>= 0.3.0)
-  blacklight-maps
+  blacklight-maps!
   blacklight-oembed (>= 0.1.0)
   blacklight-spotlight!
   byebug

@@ -11,6 +11,22 @@ GIT
       rails
 
 GIT
+  remote: git://github.com/WSULib/blacklight.git
+  revision: 44fcb6a4f83f688e1b4c7b2d253fca564f99d4ff
+  branch: 6.15.0
+  specs:
+    blacklight (6.15.0)
+      bootstrap-sass (~> 3.2)
+      deprecation
+      globalid
+      jbuilder
+      kaminari (>= 0.15)
+      nokogiri (~> 1.6)
+      rails (>= 4.2, < 6)
+      rsolr (>= 1.0.6, < 3)
+      twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
+
+GIT
   remote: git://github.com/WSULib/spotlight.git
   revision: 4a0155fe3810abd5643ad5d96e2c30be51a6808b
   branch: master
@@ -107,16 +123,6 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.12)
     bindex (0.5.0)
-    blacklight (6.15.0)
-      bootstrap-sass (~> 3.2)
-      deprecation
-      globalid
-      jbuilder
-      kaminari (>= 0.15)
-      nokogiri (~> 1.6)
-      rails (>= 4.2, < 6)
-      rsolr (>= 1.0.6, < 3)
-      twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
     blacklight-gallery (0.10.0)
       blacklight (~> 6.3)
       bootstrap-sass (~> 3.0)
@@ -409,7 +415,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  blacklight (~> 6.0)
+  blacklight (~> 6.0)!
   blacklight-gallery (>= 0.3.0)
   blacklight-maps!
   blacklight-oembed (>= 0.1.0)

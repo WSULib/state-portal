@@ -47,7 +47,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'blacklight', ' ~> 6.0'
+gem 'blacklight', ' ~> 6.0', github: 'WSULib/blacklight', branch: '6.15.0'
 gem 'blacklight-spotlight', github: 'WSULib/spotlight', branch: 'master'
 gem 'blacklight-maps', github: 'WSULib/blacklight-maps', branch: 'master'
 gem 'leaflet-rails', '~> 0.7'

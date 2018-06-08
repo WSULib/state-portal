@@ -14,7 +14,13 @@
 //
 // Required by Blacklight
 //= require jquery
+// Twitter Typeahead for autocomplete
+//= require bootstrap
 //= require blacklight/blacklight
+//= require blacklight_gallery
+//= require blacklight_oembed
 //= require blacklight-maps
+//= require openseadragon
+//= require spotlight
 
 //= require_tree .

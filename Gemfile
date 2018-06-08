@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.0'
 # Use Postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -9,7 +9,7 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 2.7.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -47,22 +47,24 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'blacklight', ' ~> 6.0', github: 'WSULib/blacklight', branch: '6.15.0'
-gem 'blacklight-spotlight', github: 'WSULib/spotlight', branch: 'master'
-gem 'blacklight-maps', github: 'WSULib/blacklight-maps', branch: 'master'
-gem 'leaflet-rails', '~> 0.7'
+gem 'bootstrap-sass', '~> 3.3.5'
+
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
-gem 'blacklight-gallery', '>= 0.3.0'
-gem 'blacklight-oembed', '>= 0.1.0'
+gem 'blacklight', '~> 6.3'
+gem 'blacklight-gallery', '~> 0.3'
+gem 'blacklight-spotlight', '~> 2.0'
+gem 'blacklight-maps', github: 'WSULib/blacklight-maps', branch: 'master'
+gem 'blacklight-oembed', '~> 0.2'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'devise_invitable'
 gem 'faraday'
-gem 'friendly_id'
+gem 'friendly_id', '~> 5.2.0'
 gem 'jquery-rails'
+gem 'leaflet-rails', '~> 0.7'
 gem 'riiif', '~> 1.0'
 gem 'rsolr', '>= 1.0'
 gem 'sitemap_generator'

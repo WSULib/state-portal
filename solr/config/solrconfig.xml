@@ -30,6 +30,8 @@
       <str name="fieldName">identifier</str>
     </processor>
     <processor class="edu.stsci.registry.solr.GeocodeUpdateProcessorFactory">
+      <str name="dbConnection">jdbc:postgresql://db/spotlight_development?user=postgres</str>
+      <str name="geolocationApiKey">${geolocation.api_key:}</str>
       <str name="placenameField">place_ssim</str>
       <str name="coordinatesField">coordinates_bbox</str>
       <str name="geojsonField">geojson_ssim</str>

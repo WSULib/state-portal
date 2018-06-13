@@ -53,7 +53,7 @@ end
 
 gem 'blacklight', '~> 6.3'
 gem 'blacklight-gallery', '~> 0.3'
-gem 'blacklight-spotlight', '~> 2.0'
+gem 'blacklight-spotlight', '~> 2.0', github: 'WSULib/spotlight', branch: 'master'
 gem 'blacklight-maps', github: 'WSULib/blacklight-maps', branch: 'master'
 gem 'blacklight-oembed', '~> 0.2'
 gem 'devise'

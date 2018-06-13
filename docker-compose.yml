@@ -16,6 +16,8 @@ services:
     depends_on:
       - db
     restart: unless-stopped
+    volumes:
+      - webdata:/app/public/uploads
   solr:
     build:
       context: ./solr
@@ -32,3 +34,4 @@ services:
 volumes:
   pgdata:
   solrdata:
+  webdata:

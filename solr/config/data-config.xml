@@ -1,6 +1,6 @@
 <dataConfig>
   <dataSource type="edu.stsci.registry.solr.OAIPMHDataSource"/>
-  <document>
+  <document onImportEnd="edu.stsci.registry.solr.ImportEndListener">
     <entity name="record"
             url="replace me: set url"
             processor="edu.stsci.registry.solr.OAIPMHEntityProcessor"

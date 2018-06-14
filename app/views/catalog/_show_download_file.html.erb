@@ -1,1 +1,1 @@
-<a href="<%= Spotlight::Attachment.find(@document.id).file.url %>">Download</a>
+<a href="<%= Spotlight::SolrDocumentSidecar.where(document_id: @document.id).first.resource.upload.image.url %>">Download</a>

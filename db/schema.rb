@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180525175332) do
+ActiveRecord::Schema.define(version: 2018_06_18_143320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20180525175332) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "geolocation", id: :serial, force: :cascade do |t|
+    t.string "name", limit: 255
+    t.float "lat"
+    t.float "lng"
+    t.boolean "partial"
+    t.index ["name"], name: "geolocation_name_key", unique: true
   end
 
   create_table "searches", id: :serial, force: :cascade do |t|
@@ -139,6 +147,7 @@ ActiveRecord::Schema.define(version: 20180525175332) do
     t.integer "site_id"
     t.string "theme"
     t.boolean "hidden", default: false
+    t.json "backups"
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
   end

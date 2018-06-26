@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git://github.com/WSULib/spotlight.git
-  revision: 09081dabc86a87979ae2444e2b4d5b6163d7b662
+  revision: 9318fe9682a3f8d8cc02c62ac3e3eab5cdbc9276
   branch: master
   specs:
     blacklight-spotlight (2.0.2)
@@ -51,6 +51,7 @@ GIT
       sprockets-es6
       tophat
       underscore-rails (~> 1.6)
+      zipline
 
 GEM
   remote: https://rubygems.org/
@@ -155,6 +156,7 @@ GEM
     clipboard-rails (1.7.1)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    curb (0.9.6)
     declarative (0.0.10)
     declarative-option (0.1.0)
     deprecation (1.0.0)
@@ -408,6 +410,11 @@ GEM
     websocket-extensions (0.1.3)
     xpath (3.1.0)
       nokogiri (~> 1.8)
+    zip_tricks (4.6.0)
+    zipline (1.0.2)
+      curb (>= 0.8.0, < 0.10)
+      rails (>= 3.2.1, < 5.3)
+      zip_tricks (>= 4.2.1, <= 5.0.0)
 
 PLATFORMS
   ruby

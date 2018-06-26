@@ -17,10 +17,17 @@ class SolrManagementController < ApplicationController
   end
 
   def update
+    puts "Updating Solr index"
     Faraday.get "#{ENV['SOLR_URL']}/dataimport?command=full-import&clean=false"
   end
 
   def reindex
-    Faraday.get "#{ENV['SOLR_URL']}/dataimport?command=full-import&clean=true"
+    backup = Spotlight::Exhibit.export_all
+    if backup.messages.any? || !backup.save
+      redirect_to action: :index, alert: messages
+    else
+      puts "Reindexing Solr index"
+      Faraday.get "#{ENV['SOLR_URL']}/dataimport?command=full-import&clean=true"
+    end
   end
 end

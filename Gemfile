@@ -66,5 +66,7 @@ gem 'leaflet-rails', '~> 1.2'
 gem 'riiif', '~> 1.0'
 gem 'rsolr', '>= 1.0'
 gem 'sitemap_generator'
+gem 'whenever', require: false
+gem 'dotenv-rails'
 
 gem 'sentry-raven'

@@ -7,7 +7,8 @@ RUN apk add --no-cache \
       nodejs \
       tzdata \
       postgresql-dev \
-      imagemagick
+      imagemagick \
+      curl-dev
 
 # Set an environment variable to store where the app is installed to inside
 # of the Docker image.

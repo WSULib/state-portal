@@ -1,8 +1,9 @@
 @import "variables";
 
 // Bootstrap overrides
+$brand-primary: $blue;
 $font-family-sans-serif: 'Montserrat', sans-serif;
-$navbar-inverse-bg: $blue;
+$navbar-inverse-bg: $brand-primary;
 $navbar-inverse-link-color: $white;
 
 $logo-image: image_url('logo.png');

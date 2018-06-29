@@ -1,0 +1,20 @@
+@import "bootstrap/variables";
+@import "bootstrap/mixins/clearfix";
+@import "bootstrap/mixins/grid";
+
+.padded-container {
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    padding-left: calc((100% - #{$container-sm - $grid-gutter-width})/2);
+    padding-right: calc((100% - #{$container-sm - $grid-gutter-width})/2);
+  }
+  @media (min-width: $screen-md-min) {
+    padding-left: calc((100% - #{$container-md - $grid-gutter-width})/2);
+    padding-right: calc((100% - #{$container-md - $grid-gutter-width})/2);
+  }
+  @media (min-width: $screen-lg-min) {
+    padding-left: calc((100% - #{$container-lg - $grid-gutter-width})/2);
+    padding-right: calc((100% - #{$container-lg - $grid-gutter-width})/2);
+  }
+}

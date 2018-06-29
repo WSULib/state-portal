@@ -1,10 +1,12 @@
 @import 'spotlight/variables_bootstrap';
+@import 'wsu/bootstrap_overrides';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap-tagsinput';
 @import 'sir-trevor/main';
 @import 'leaflet';
 @import "openseadragon";
-@import "blacklight";
+@import "blacklight/blacklight";
 @import "blacklight_gallery";
 @import 'spotlight/spotlight';
+@import "wsu/theme";

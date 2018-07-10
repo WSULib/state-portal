@@ -1,0 +1,10 @@
+@import "variables";
+
+.panel {
+  box-shadow: none;
+}
+
+.panel-body {
+  background-color: $dark-gray;
+  border-left: 2px solid $blue;
+}

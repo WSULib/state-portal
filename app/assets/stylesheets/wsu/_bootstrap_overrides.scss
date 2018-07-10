@@ -7,6 +7,15 @@ $navbar-inverse-bg: $brand-primary;
 $navbar-inverse-link-color: $white;
 $breadcrumb-bg: transparent;
 $headings-font-weight: $bold-font-weight;
+
+// Panels
+$panel-default-border: transparent;
+$panel-default-text: $blue;
+$panel-default-heading-bg: transparent;
+$panel-primary-border: transparent;
 $panel-border-radius: 0;
+$panel-success-heading-bg: transparent;
+$panel-success-border: transparent;
+$panel-success-text: $blue;
 
 $logo-image: image_url('logo.png');

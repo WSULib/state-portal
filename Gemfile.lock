@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/WSULib/blacklight-maps.git
-  revision: c74dbbaf99640a39ab57eb734e3e4f8f0f8aa35e
+  revision: e380b3cb4098aff2928c158722fbe6eb46e97452
   branch: master
   specs:
     blacklight-maps (0.5.0)
@@ -104,7 +104,7 @@ GEM
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
     arel (9.0.0)
-    autoprefixer-rails (8.6.4)
+    autoprefixer-rails (8.6.5)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -251,7 +251,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.3.1)
-    nokogiri (1.8.3)
+    nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)

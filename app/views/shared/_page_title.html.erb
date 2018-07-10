@@ -1,0 +1,17 @@
+<div class="container site-title-container">
+  <div class="site-title h1">
+    <% if content_for? :masthead %>
+      <%= content_for :masthead %>
+    <% elsif current_exhibit %>
+      <%= current_exhibit.title %>
+      <% if current_exhibit.subtitle.present? %>
+        <small><%= current_exhibit.subtitle %></small>
+      <% end %>
+    <% else %>
+      <%= application_name %>
+      <% if current_site.subtitle.present? %>
+        <small><%= current_site.subtitle %></small>
+      <% end %>
+    <% end %>
+  </div>
+</div>

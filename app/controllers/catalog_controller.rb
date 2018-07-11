@@ -35,7 +35,7 @@ class CatalogController < ApplicationController
     # config.view.slideshow.partials = [:index]
 
     config.show.tile_source_field = :content_metadata_image_iiif_info_ssm
-    config.show.partials.insert(1, :openseadragon)
+    # config.show.partials.insert(1, :openseadragon)
     config.show.partials << :show_download
 
     ## blacklight-maps configuration default values

@@ -1,0 +1,18 @@
+.toggle_bookmark {
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  span:before {
+    font-family: 'Glyphicons Halflings';
+    vertical-align: middle;
+    margin-right: 3px;
+    content: "\e007";
+  }
+
+  &.checked {
+    span:before {
+      content: "\e006";
+    }
+  }
+}

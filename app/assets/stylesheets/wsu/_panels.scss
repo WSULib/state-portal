@@ -4,7 +4,9 @@
   box-shadow: none;
 }
 
-.panel-body {
-  background-color: $dark-gray;
-  border-left: 2px solid $blue;
+.facets {
+  .panel-body {
+    background-color: $dark-gray;
+    border-left: 2px solid $blue;
+  }
 }

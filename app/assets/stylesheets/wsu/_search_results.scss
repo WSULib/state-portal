@@ -1,12 +1,18 @@
+$title-margin: 20px;
+
 #documents {
   .document {
+    h1 {
+      margin-bottom: $title-margin;
+    }
+
     .document-thumbnail {
       float: left;
     }
 
     .document-title-heading {
       font-size: 19px;
-      margin-bottom: 20px;
+      margin-bottom: $title-margin;
     }
   }
 }

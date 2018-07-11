@@ -8,6 +8,8 @@ $title-margin: 20px;
 
     .document-thumbnail {
       float: left;
+      border: 6px solid $black;
+      padding-left: 0;
     }
 
     .document-title-heading {

@@ -9,12 +9,14 @@
   background-color: $dark-blue;
 }
 
-.navbar-nav {
-  @media (min-width: $grid-float-breakpoint) {
-    > li {
-      > a {
-        padding-top: $top-navbar-padding-vertical;
-        padding-bottom: $top-navbar-padding-vertical;
+#header-navbar {
+  .navbar-nav {
+    @media (min-width: $grid-float-breakpoint) {
+      > li {
+        > a {
+          padding-top: $top-navbar-padding-vertical;
+          padding-bottom: $top-navbar-padding-vertical;
+        }
       }
     }
   }

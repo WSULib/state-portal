@@ -14,3 +14,8 @@
     padding-right: calc((100% - #{$container-lg - $grid-gutter-width})/2);
   }
 }
+
+.blacklight-catalog-edit #document, .blacklight-catalog-show #document {
+  margin-left: 0;
+  margin-right: 0;
+}

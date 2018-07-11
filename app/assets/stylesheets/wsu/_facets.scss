@@ -1,7 +1,23 @@
 @import "variables";
 
+$glyphicon-color: #777777;
+
 .facet-values {
   .facet-label {
     font-weight: $bold-font-weight;
   }
+
+  li {
+    .selected {
+      color: #222222;
+    }
+  }
+
+  .remove {
+    color: $glyphicon-color;
+  }
+}
+
+.panel-heading.collapse-toggle .panel-title:after {
+  color: $glyphicon-color;
 }

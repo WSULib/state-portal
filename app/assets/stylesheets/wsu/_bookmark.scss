@@ -1,4 +1,10 @@
-.toggle_bookmark {
+label.toggle_bookmark {
+  padding-left: 0;
+  
+  .thumbnail & {
+    margin-bottom: 8px;
+  }
+
   input[type="checkbox"] {
     display: none;
   }
@@ -15,4 +21,5 @@
       content: "\e006";
     }
   }
+
 }

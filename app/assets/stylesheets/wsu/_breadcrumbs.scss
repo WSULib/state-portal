@@ -1,8 +1,4 @@
 .breadcrumb {
-  li {
-    font-weight: 600;
-  }
-
   li + li:before {
     content: '/';
     color: $dark-blue;

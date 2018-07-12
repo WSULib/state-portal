@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/WSULib/spotlight.git
-  revision: 2f08a3fbbc44955c3325c91580e801f2f5707fc0
+  revision: 7f909f84d66590a4f17ace3d2f76c2c5c7420895
   branch: master
   specs:
     blacklight-spotlight (2.0.2)

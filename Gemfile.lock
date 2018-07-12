@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/WSULib/spotlight.git
-  revision: dd2767ea9366caa368f5db71f7750833e6880f4b
+  revision: 2f08a3fbbc44955c3325c91580e801f2f5707fc0
   branch: master
   specs:
     blacklight-spotlight (2.0.2)
@@ -147,7 +147,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
-    carrierwave (1.2.2)
+    carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -187,7 +187,7 @@ GEM
     ffi (1.9.25)
     friendly_id (5.2.4)
       activerecord (>= 4.0.0)
-    github-markup (2.0.0)
+    github-markup (2.0.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (1.0.1)

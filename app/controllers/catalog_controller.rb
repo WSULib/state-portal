@@ -93,8 +93,8 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field Spotlight::Engine.config.thumbnail_field, label: 'Image', helper_method: :solr_url_to_image, if: :is_gallery_view?
     config.add_index_field 'spotlight_upload_description_tesim', label: 'Description', unless: :is_gallery_view?
+    config.add_index_field Spotlight::Engine.config.thumbnail_field, label: 'Image', helper_method: :solr_url_to_image, if: :is_gallery_view?
     config.add_index_field 'note_tesim', label: 'Notes', unless: :is_gallery_view?
     config.add_index_field 'date_issued_dr', label: 'Date Issued'
     config.add_index_field 'date_created_dr', label: 'Date Created'

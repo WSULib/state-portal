@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  scope :admin do
-    scope :solr, controller: 'solr_management' do
-      get '/', action: 'index'
-      post 'update'
-      post 'reindex'
-    end
-  end
-
   mount Blacklight::Oembed::Engine, at: 'oembed'
   mount Riiif::Engine => '/images', as: 'riiif'
   root to: 'spotlight/home_pages#show', exhibit_id: 'default' # spotlight root path

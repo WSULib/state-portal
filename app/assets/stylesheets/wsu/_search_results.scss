@@ -2,6 +2,8 @@ $title-margin: 20px;
 
 #documents {
   .document {
+    border-bottom: none;
+
     h1 {
       margin-bottom: $title-margin;
     }

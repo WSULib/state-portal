@@ -1,0 +1,13 @@
+<% if iiif_link? %>
+  <div class="panel panel-default show-tools">
+    <div class="panel-body">
+      <%= @document[Spotlight::Engine.config.iiif_field].first %>
+    </div>
+  </div>
+<% elsif has_thumbnail? %>
+  <div class="panel panel-default show-tools">
+    <div class="panel-body">
+      <%= image_tag @document[Spotlight::Engine.config.thumbnail_field].first %>
+    </div>
+  </div>
+<% end %>

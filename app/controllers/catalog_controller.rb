@@ -102,7 +102,6 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'full_image_url_ssm', label: 'Thumbnail', helper_method: :solr_url_to_image
     config.add_show_field 'collection_ssim', label: 'Collection', link_to_search: true
     config.add_show_field 'spotlight_upload_description_tesim', label: 'Abstract'
     config.add_show_field 'note_tesim', label: 'Notes'

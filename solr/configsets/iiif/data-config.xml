@@ -17,7 +17,7 @@
       <field column="data_provider_ssim" xpath="metadata/mods/recordInfo/recordContentSource"/>
       <field column="url_ssm" xpath="metadata/mods/location/url[@usage='primary']"/>
       <field column="full_image_url_ssm" xpath="metadata/mods/location/url[@access='preview']"/>
-      <field column="content_metadata_image_iiif_info_ssm" xpath="metadata/mods/location/url[@access='iiif']"/>
+      <field column="iiif_url_ssm" xpath="metadata/mods/location/url[@access='iiif']"/>
 
       <field column="collection_ssim" xpath="metadata/mods/relatedItem[@type='host']/titleInfo/title"/>
       <field column="language_ssim" xpath="metadata/mods/language/languageTerm"/>

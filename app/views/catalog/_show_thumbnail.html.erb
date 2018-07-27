@@ -1,7 +1,9 @@
 <% if iiif_link? %>
   <div class="panel panel-default show-tools">
     <div class="panel-body">
-      <%= @document[Spotlight::Engine.config.iiif_field].first %>
+      <div class="uv" data-locale="en-GB:English (GB)" data-config="" data-uri="<%= @document[Spotlight::Engine.config.iiif_field].first %>" data-collectionindex="0" data-manifestindex="0" data-sequenceindex="0" data-canvasindex="0"></div>
+
+      <%= PulUvRails::UniversalViewer.script_tag %>
     </div>
   </div>
 <% elsif has_thumbnail? %>

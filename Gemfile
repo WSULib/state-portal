@@ -69,5 +69,6 @@ gem 'rsolr', '>= 1.0'
 gem 'sitemap_generator'
 gem 'whenever', require: false
 gem 'dotenv-rails'
+gem 'pul_uv_rails'
 
 gem 'sentry-raven'

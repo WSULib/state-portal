@@ -1,8 +1,8 @@
-<div id="content" class="<%= show_content_classes %>">
+<div id="content" class="<%= iiif_link? ? 'col-md-6 col-sm-8' : 'col-md-9 col-sm-8' %> show-document">
   <%= render_document_main_content_partial %>
 </div>
 
-<div id="sidebar" class="<%= show_sidebar_classes %>">
-   <%= render :partial => 'show_thumbnail' %>
-   <%= render_document_sidebar_partial %>
+<div id="sidebar" class="<%= iiif_link? ? 'col-md-6 col-sm-4' : 'col-md-3 col-sm-4' %>">
+  <%= render :partial => 'show_thumbnail' %>
+  <%= render_document_sidebar_partial %>
 </div>

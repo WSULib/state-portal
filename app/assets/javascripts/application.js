@@ -21,4 +21,4 @@
 //= require openseadragon
 //= require spotlight
 
-//= require_tree .
+//= require_tree ./spotlight

@@ -267,6 +267,7 @@ GEM
     paper_trail-association_tracking (1.0.0)
     pg (1.0.0)
     public_suffix (3.0.2)
+    pul_uv_rails (2.0.1)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (1.0.0)
@@ -447,6 +448,7 @@ DEPENDENCIES
   leaflet-rails (~> 1.2)
   listen (>= 3.0.5, < 3.2)
   pg
+  pul_uv_rails
   puma (~> 3.7)
   rails (~> 5.2.0)
   rails-assets-leaflet.markercluster!

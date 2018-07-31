@@ -1,3 +1,7 @@
 en:
   blacklight:
     application_name: 'Michigan Memories'
+    search:
+      form:
+        search:
+          placeholder: 'Search all exhibits...'

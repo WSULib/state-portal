@@ -4,7 +4,7 @@
       <%= link_to(current_exhibit.title, spotlight.exhibit_path(current_exhibit), class: 'navbar-brand') %>
     <% end %>
 
-    <% unless current_exhibit == default_exhibit %>
+    <% unless default_exhibit? %>
       <ul class="nav navbar-nav">
         <li class="<%= "active" if current_page?([spotlight, current_exhibit]) %>"><%= link_to t(:'spotlight.curation.nav.home'), [spotlight, current_exhibit] %></li>
         <% current_exhibit.main_navigations.displayable.each do |navigation| %>

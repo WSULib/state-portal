@@ -3,6 +3,7 @@
 module SpotlightHelper
   include ::BlacklightHelper
   include Spotlight::MainAppHelpers
+  include Spotlight::ExhibitHelpers
 
   def iiif_link?
     @document[Spotlight::Engine.config.iiif_field].present?
@@ -10,9 +11,5 @@ module SpotlightHelper
 
   def has_thumbnail?
     @document[Spotlight::Engine.config.thumbnail_field].present?
-  end
-
-  def default_exhibit
-    Spotlight::Exhibit.find_by_slug('default')
   end
 end

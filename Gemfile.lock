@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/WSULib/spotlight.git
-  revision: eca9695372034a6128d285107b0779898255d57f
+  revision: 232deb8d960316e3fe0405b145ade222503a573c
   branch: master
   specs:
     blacklight-spotlight (2.0.2)
@@ -104,7 +104,7 @@ GEM
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
     arel (9.0.0)
-    autoprefixer-rails (8.6.5)
+    autoprefixer-rails (9.0.2)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -270,7 +270,7 @@ GEM
     pul_uv_rails (2.0.1)
     puma (3.11.4)
     rack (2.0.5)
-    rack-test (1.0.0)
+    rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.0)
       actioncable (= 5.2.0)
@@ -333,7 +333,7 @@ GEM
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
-    sass (3.5.6)
+    sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)

@@ -1,0 +1,46 @@
+<div id="header-navbar" class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+  <div class="navbar-top padded-container">
+    <div class="collapse navbar-collapse" id="user-util-collapse">
+      <%= render '/spotlight/shared/locale_picker' %>
+      <% if current_exhibit and show_contact_form? %>
+        <li>
+          <%= link_to t('spotlight.header_links.contact'), spotlight.new_exhibit_contact_form_path(current_exhibit), data: {behavior: 'contact-link', target: 'report-problem-form' } %>
+        </li>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="padded-container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#user-util-collapse">
+      <span class="sr-only"><%= t :toggle_nav %></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to current_site.title, main_app.root_path, class: "navbar-brand" %>
+    <div class="collapse navbar-collapse">
+      <div class="navbar-right">
+        <%= render partial: 'shared/global_navbar' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if show_contact_form? %>
+  <div id="report-problem-form">
+    <%= render 'spotlight/shared/report_a_problem' %>
+  </div>
+<% end %>
+
+<div class="masthead <%= 'image-masthead' if current_masthead %> <%= 'resource-masthead' if resource_masthead? %>">
+  <% if current_masthead %>
+    <span class='background-container' style="background-image: url('<%= current_masthead.iiif_url %>')"></span>
+    <span class='background-container-gradient'></span>
+  <% end %>
+
+  <%= render 'spotlight/home_pages/exhibit_navbar' if current_exhibit && resource_masthead? %>
+
+  <%= render 'spotlight/home_pages/exhibit_navbar' if current_exhibit && !resource_masthead? %>
+</div>
+
+<%= render 'shared/breadcrumbs' unless resource_masthead? %>

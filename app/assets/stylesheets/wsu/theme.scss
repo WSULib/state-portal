@@ -1,6 +1,8 @@
 @import "variables";
 @import "fonts";
+@import "mixins";
 
+@import "home";
 @import "grid";
 @import "breadcrumbs";
 @import "header";
@@ -14,5 +16,7 @@
 @import "bookmark";
 @import "forms";
 @import "gallery";
+@import "exhibit_thumbnail";
+@import "navbar_splash";
 
 @import "uv";

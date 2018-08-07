@@ -1,0 +1,19 @@
+$border-thickness: 3px;
+
+.blacklight-page-default-exhibit-home {
+  h2 {
+    border-bottom: solid 1px $dark-gray;
+
+    &:after {
+      content: "";
+      border-bottom: solid 5px $blue;
+      position: absolute;
+      margin-top: -5px;
+      width: 150px;
+    }
+  }
+
+  .items-block .items-col .box {
+    min-width: 25%;
+  }
+}

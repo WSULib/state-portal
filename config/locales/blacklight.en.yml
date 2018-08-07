@@ -1,6 +1,7 @@
 en:
   blacklight:
     application_name: 'Michigan Memories'
+    welcome_text: 'Welcome to Michigan Memories!'
     search:
       form:
         search:

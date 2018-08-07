@@ -1,0 +1,21 @@
+<div id="exhibit-navbar" class="exhibit-navbar navbar navbar-default" role="navigation">
+  <div class="container">
+    <% if resource_masthead? %>
+      <%= link_to(current_exhibit.title, spotlight.exhibit_path(current_exhibit), class: 'navbar-brand') %>
+    <% end %>
+
+    <h1 class="splash-text">
+      <%= t('blacklight.welcome_text') %>
+    </h1>
+    <% if should_render_spotlight_search_bar? %>
+      <ul class="navbar-nav nav">
+        <%= render_search_bar  %>
+        <div class="search-nav-actions">
+          <%= render_nav_actions do |config, action|%>
+            <li><%= action %></li>
+          <% end %>
+        </div>
+      </ul>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <ul class="nav navbar-nav nav-global">
-  <li class="<%= "active" if current_page?([spotlight, current_exhibit]) %>"><%= link_to t(:'spotlight.curation.nav.home'), [spotlight, current_exhibit] %></li>
+  <li class="<%= "active" if current_page?([spotlight, current_exhibit]) %>"><%= link_to t(:'spotlight.curation.nav.home'), [spotlight, default_exhibit] %></li>
   <% default_exhibit.main_navigations.displayable.each do |navigation| %>
-    <%= render partial: "shared/#{navigation.nav_type}_navbar", locals: { navigation: navigation } %>
+    <%= render partial: "shared/global_#{navigation.nav_type}_navbar", locals: { navigation: navigation } %>
   <% end %>
 </ul>

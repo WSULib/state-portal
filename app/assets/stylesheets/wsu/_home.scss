@@ -49,6 +49,14 @@ $border-thickness: 3px;
 
   .search-query-form {
     width: 100%;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+    .input-group {
+      display: flex;
+    }
   }
 
   .navbar-form .input-group > .form-control {
@@ -83,13 +91,39 @@ $border-thickness: 3px;
   }
 
   #search {
+    border-radius: 0;
+
     .submit-search-text {
       position: initial;
     }
 
     .glyphicon {
-      float: left;
       margin-right: 12px;
+    }
+  }
+
+  .thumbnail {
+    border: none;
+    padding: 0;
+  }
+
+  .contents {
+    border: 1px solid $dark-gray;
+    padding: 8px 10px 17px;
+    background-color: $light-gray;
+    height: 100%;
+  }
+  
+  .box {
+    .caption {
+      text-align: left;
+      font-style: normal;
+      font-weight: $bold-font-weight;
+    }
+
+    .primary-caption {
+      text-transform: uppercase;
+      color: $gold;
     }
   }
 }

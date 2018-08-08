@@ -2,4 +2,17 @@
   @include aspect-ratio(4, 3);
   
   border: 1px solid $dark-gray;
+
+  .content {
+    a {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    &--background {
+      a {
+        color: $white;
+      }
+    }
+  }
 }

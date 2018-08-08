@@ -36,7 +36,7 @@
 
   </head>
   <body class="<%= render_body_class %> <%= render_exhibit_class %>">
-  <% if default_exhibit? && @page.instance_of?(Spotlight::HomePage) %>
+  <% if home_page? %>
     <%= render partial: 'spotlight/home_pages/splash' %>
   <% else %>
     <%= render partial: 'shared/header_navbar' %>

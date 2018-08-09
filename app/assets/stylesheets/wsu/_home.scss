@@ -15,6 +15,8 @@ $border-thickness: 3px;
 
   .items-block .items-col .box {
     min-width: 25%;
+    padding-left: ceil(($grid-gutter-width / 2));
+    padding-right: floor(($grid-gutter-width / 2));
   }
 
   #header-navbar {
@@ -109,7 +111,7 @@ $border-thickness: 3px;
 
   .contents {
     border: 1px solid $dark-gray;
-    padding: 8px 10px 17px;
+    padding: 7px 7px 17px;
     background-color: $light-gray;
     height: 100%;
   }

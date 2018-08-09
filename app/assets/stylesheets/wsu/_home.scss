@@ -114,16 +114,14 @@ $border-thickness: 3px;
     height: 100%;
   }
   
-  .box {
-    .caption {
-      text-align: left;
-      font-style: normal;
-      font-weight: $bold-font-weight;
-    }
+  .caption {
+    text-align: left;
+    font-style: normal;
+    font-weight: $bold-font-weight;
+  }
 
-    .primary-caption {
-      text-transform: uppercase;
-      color: $gold;
-    }
+  .primary-caption {
+    text-transform: uppercase;
+    color: $gold;
   }
 }

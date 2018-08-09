@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
   include Spotlight::Controller
-  include Blacklight::BlacklightHelperBehavior
+  include Spotlight::Concerns::ApplicationController
 
   layout 'blacklight'
 
@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def is_gallery_view?(context, *args)
-    :gallery == document_index_view_type(params)
+    :gallery == document_index_view_type
   end
 end

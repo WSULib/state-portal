@@ -6,7 +6,7 @@
       <%= PulUvRails::UniversalViewer.script_tag %>
     </div>
   </div>
-<% elsif has_thumbnail? %>
+<% elsif has_thumbnail?(@document) %>
   <div class="panel panel-default show-tools">
     <div class="panel-body">
       <%= image_tag @document[Spotlight::Engine.config.thumbnail_field].first %>

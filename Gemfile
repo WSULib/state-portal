@@ -51,7 +51,7 @@ group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 
-gem 'blacklight', '~> 6.3'
+gem 'blacklight', '~> 6.3', github: 'WSULib/blacklight', branch: '6.15.0'
 gem 'blacklight-gallery', '~> 0.3'
 gem 'blacklight-spotlight', '~> 2.0', github: 'WSULib/spotlight', branch: 'master'
 gem 'blacklight-maps', github: 'WSULib/blacklight-maps', branch: 'master'

@@ -8,3 +8,5 @@ en:
           placeholder: 'Search all exhibits...'
     home:
       browse: 'Browse'
+    footer:
+      copyright: 'Wayne State University'

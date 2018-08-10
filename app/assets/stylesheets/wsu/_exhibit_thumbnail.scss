@@ -1,11 +1,8 @@
-$thumbnail-margin: 13px;
-
 .exhibit-thumbnail {
   @include aspect-ratio(4, 3);
   
   border: 1px solid $dark-gray;
-  margin-top: $thumbnail-margin;
-  margin-bottom: $thumbnail-margin;
+  margin-bottom: 26px;
 
   .content {
     a {

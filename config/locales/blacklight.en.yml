@@ -6,3 +6,5 @@ en:
       form:
         search:
           placeholder: 'Search all exhibits...'
+    home:
+      browse: 'Browse'

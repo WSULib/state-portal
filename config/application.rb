@@ -17,7 +17,7 @@ Bundler.require(*Rails.groups)
 
 module Spotlight
   class Application < Rails::Application
-          config.action_mailer.default_url_options = { host: "localhost:3000", from: "noreply@example.com" }
+    config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'], from: ENV['APP_EMAIL'] }
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

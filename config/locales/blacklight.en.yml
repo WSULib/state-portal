@@ -5,7 +5,7 @@ en:
     search:
       form:
         search:
-          placeholder: 'Search all exhibits...'
+          placeholder: 'Search the portal...'
     home:
       browse: 'Browse'
     footer:

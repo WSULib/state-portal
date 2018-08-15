@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     Raven.user_context(id: current_user.id) if current_user
   end
 
-  def is_gallery_view?(context, *args)
+  def is_gallery_view?
     :gallery == document_index_view_type
   end
 end

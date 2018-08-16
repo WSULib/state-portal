@@ -50,8 +50,7 @@ $border-thickness: 3px;
   .masthead {
     padding-top: 178px;
     padding-bottom: 156px;
-    background: image-url('splash_background.jpg');
-    background-size: cover;
+    background: image-url('splash_background.jpg') center / cover no-repeat;
   }
 
   #exhibit-navbar {

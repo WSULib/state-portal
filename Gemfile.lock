@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/WSULib/blacklight.git
-  revision: d614e0ea97160dbc8b405c17fc98f30fb1fbdd49
+  revision: 7c54ef3e01f95ec804a293ab525a51dbd5626b16
   branch: 6.15.0
   specs:
     blacklight (6.15.0)

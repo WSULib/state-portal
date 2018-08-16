@@ -38,6 +38,10 @@ class CatalogController < ApplicationController
     # config.show.partials.insert(1, :openseadragon)
     config.show.partials << :show_download
 
+    # Remove SMS Functionality
+    config.show.document_actions.delete(:sms)
+    config.show.document_actions.delete(:citation)
+
     ## blacklight-maps configuration default values
     config.view.maps.geojson_field = "geojson_ssim"
     config.view.maps.placename_property = "placename"

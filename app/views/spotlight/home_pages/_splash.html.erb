@@ -34,18 +34,17 @@
 
 <div class="masthead <%= 'image-masthead' if current_site.masthead && current_site.masthead.display? %> <%= 'resource-masthead' if resource_masthead? %>">
   <% if current_site.masthead && current_site.masthead.display? %>
-    <span class='background-container' style="background-image: url('<%= current_site.masthead.image_url %>')"></span>
+    <span class='background-container' style="background-image: url('<%= current_site.masthead.source_image.image.url %>')"></span>
+    <div class="masthead__caption">
+      <a href="<%= current_site.masthead_caption_url %>">
+        <%= current_site.masthead_caption %>
+      </a>
+    </div>
   <% end %>
 
   <%= render 'spotlight/home_pages/exhibit_navbar' if current_exhibit && resource_masthead? %>
 
   <%= render 'spotlight/home_pages/exhibit_navbar' if current_exhibit && !resource_masthead? %>
-
-  <div class="masthead__caption">
-    <a href="https://cdm16259.contentdm.oclc.org/digital/collection/p4022coll10/id/40/rec/3">
-      Caroline Bartlett Crane with daughter in dining room of Everyman's House
-    </a>
-  </div>
 </div>
 
 <%= render 'shared/breadcrumbs' unless resource_masthead? %>

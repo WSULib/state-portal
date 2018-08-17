@@ -50,7 +50,6 @@ $border-thickness: 3px;
   .masthead {
     padding-top: 178px;
     padding-bottom: 156px;
-    background: image-url('splash_background.jpg') center / cover no-repeat;
     position: relative;
   }
 
@@ -62,6 +61,14 @@ $border-thickness: 3px;
 
     a {
       color: $white;
+    }
+  }
+
+  .image-masthead {
+    .background-container {
+      top: 0;
+      background-position: center;
+      filter: none;
     }
   }
 

@@ -27,6 +27,10 @@ $border-thickness: 3px;
   .items-block .items-col .box {
     min-width: 25%;
     padding: 0 floor(($grid-gutter-width / 2)) 0 ceil(($grid-gutter-width / 2));
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: 22px;
+    }
   }
 
   #header-navbar {

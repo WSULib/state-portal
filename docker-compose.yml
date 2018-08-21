@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     image: postgres:9.6
+    env_file: .env
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:

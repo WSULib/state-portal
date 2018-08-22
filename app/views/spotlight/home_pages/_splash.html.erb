@@ -1,6 +1,7 @@
 <div id="header-navbar" class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
   <div class="navbar-top padded-container">
     <div class="collapse navbar-collapse" id="user-util-collapse">
+      <%= render :partial =>'/user_util_links' %>
       <%= render '/spotlight/shared/locale_picker' %>
       <% if current_exhibit and show_contact_form? %>
         <li>

@@ -92,6 +92,10 @@ $border-thickness: 3px;
     .input-group {
       display: flex;
     }
+
+    .input-group-btn {
+      width: auto;
+    }
   }
 
   .navbar-form .input-group > .form-control {
@@ -106,6 +110,7 @@ $border-thickness: 3px;
 
   .navbar-nav {
     width: 100%;
+    margin: 0;
   }
 
   .search-nav-actions {

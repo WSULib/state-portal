@@ -1,3 +1,7 @@
 .dl-invert dt {
   font-weight: $bold-font-weight;
 }
+
+.dl-horizontal dd {
+  word-break: break-word;
+}

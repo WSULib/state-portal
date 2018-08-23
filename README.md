@@ -49,13 +49,14 @@ If you want to add the field to the search results list:
 ## Initial setup
 
 * Set up environment variables to remote docker machine: `eval $(docker-machine env spotlight)`
-* Deploy the application: `docker-compose -p spotlight up --no-start`
+* Deploy the application: `docker-compose -p spotlight -f docker-compose.yml up --no-start`
 * Create the Postgres database:
-    * `docker-compose -p spotlight run web bundle exec rake db:create`
-    * `docker-compose -p spotlight run web bundle exec rake db:migrate`
-* Create initial admin user: `docker-compose -p spotlight run web bundle exec rake spotlight:initialize`
-* Create default exhibit: `docker-compose -p spotlight run web bundle exec rake db:seed`
-* Run the application in production mode: `docker-compose -p spotlight up -d`
+    * `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake db:create`
+    * `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake db:migrate`
+* Create initial admin user: `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake spotlight:initialize`
+* Create default exhibit: `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake db:seed`
+* Precompile assets if `RAILS_ENV=production`: `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake db:seed`
+* Run the application in production mode: `docker-compose -p spotlight -f docker-compose.yml up -d`
 
 ## Initialize Solr core
 
@@ -77,11 +78,11 @@ Delete Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr
 
 # Build and deploy all containers
 
-`docker-compose -p spotlight up --build -d`
+`docker-compose -p spotlight -f docker-compose.yml up --build -d`
 
 # Build and deploy new version of a container
 
-`docker-compose -p spotlight up --build -d [CONTAINER_NAME]`
+`docker-compose -p spotlight -f docker-compose.yml up --build -d [CONTAINER_NAME]`
 
 # Updating a core
 

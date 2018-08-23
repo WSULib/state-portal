@@ -26,6 +26,7 @@ services:
       args:
         GEOLOCATION_API_KEY: "${GEOLOCATION_API_KEY}"
         IMPORT_TRIGGER_URL: "${IMPORT_TRIGGER_URL}"
+        GEOLOCATION_DATABASE_URL: "${GEOLOCATION_DATABASE_URL}"
     ports:
     - "8983:8983"
     depends_on:

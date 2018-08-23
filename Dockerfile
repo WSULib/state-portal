@@ -24,3 +24,4 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 COPY . .
+RUN bundle exec rake DATABASE_URL=postgres:does_not_exist assets:precompile

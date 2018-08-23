@@ -2,15 +2,15 @@ version: '3'
 services:
   db:
     image: postgres:9.6
-    env_file: .env.development
+    env_file: .env.production
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
     - 5432:5432
     restart: unless-stopped
-  web:
+  app:
     build: .
-    env_file: .env.development
+    env_file: .env.production
     command: bundle exec puma -C config/puma.rb
     ports:
       - "3000:3000"
@@ -18,7 +18,7 @@ services:
       - db
     restart: unless-stopped
     volumes:
-      - webdata:/app/public/uploads
+      - app:/app
   solr:
     build:
       context: ./solr
@@ -34,7 +34,18 @@ services:
     volumes:
     - solrdata:/opt/solr/server/solr
     restart: unless-stopped
+  web:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - app
+    ports:
+      - 80:80
+    volumes:
+      - app:/app
 volumes:
   pgdata:
   solrdata:
   webdata:
+  app:

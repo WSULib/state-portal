@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: git://github.com/WSULib/spotlight.git
-  revision: ebf3cb7ab22c584141c97672dcd011dde5f6617f
+  revision: e301dbef1bc49f923338601b10de787f72c5735b
   branch: master
   specs:
     blacklight-spotlight (2.0.2)
@@ -120,7 +120,7 @@ GEM
     almond-rails (0.1.0)
       rails (>= 4.2, < 6)
     arel (9.0.0)
-    autoprefixer-rails (9.1.1)
+    autoprefixer-rails (9.1.3)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -359,7 +359,7 @@ GEM
       rubyzip (~> 1.2)
     sentry-raven (2.7.4)
       faraday (>= 0.7.6, < 1.0)
-    signet (0.8.1)
+    signet (0.9.0)
       addressable (~> 2.3)
       faraday (~> 0.9)
       jwt (>= 1.5, < 3.0)

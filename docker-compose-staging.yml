@@ -2,22 +2,19 @@ version: '3'
 services:
   db:
     image: postgres:9.6
-    env_file: .env
+    env_file: .env.staging
     volumes:
       - pgdata:/var/lib/postgresql/data
-    ports:
-    - 5432:5432
     restart: unless-stopped
-  web:
+  app:
     build: .
-    env_file: .env
+    env_file: .env.staging
     command: bundle exec puma -C config/puma.rb
-    ports:
-      - "80:3000"
     depends_on:
       - db
     restart: unless-stopped
     volumes:
+      - app:/app
       - webdata:/app/public/uploads
   solr:
     build:
@@ -27,14 +24,23 @@ services:
         GEOLOCATION_API_KEY: "${GEOLOCATION_API_KEY}"
         IMPORT_TRIGGER_URL: "${IMPORT_TRIGGER_URL}"
         GEOLOCATION_DATABASE_URL: "${GEOLOCATION_DATABASE_URL}"
-    ports:
-    - "8983:8983"
     depends_on:
     - db
     volumes:
     - solrdata:/opt/solr/server/solr
     restart: unless-stopped
+  web:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - app
+    ports:
+      - 80:80
+    volumes:
+      - app:/app
 volumes:
   pgdata:
   solrdata:
   webdata:
+  app:

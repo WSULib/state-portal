@@ -6,6 +6,8 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     restart: unless-stopped
+    ports:
+    - 5432:5432
   app:
     build: .
     env_file: .env.development
@@ -28,6 +30,8 @@ services:
     volumes:
     - solrdata:/opt/solr/server/solr
     restart: unless-stopped
+    ports:
+    - 8983:8983
   web:
     build:
       context: ./nginx

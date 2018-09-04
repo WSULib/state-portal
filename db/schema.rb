@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_191351) do
+ActiveRecord::Schema.define(version: 2018_08_24_143814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 2018_08_17_191351) do
     t.integer "site_id"
     t.string "theme"
     t.boolean "hidden", default: false
-    t.string "home_url"
+    t.string "home_url", default: ""
     t.index ["site_id"], name: "index_spotlight_exhibits_on_site_id"
     t.index ["slug"], name: "index_spotlight_exhibits_on_slug", unique: true
   end

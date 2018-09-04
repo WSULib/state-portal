@@ -102,3 +102,24 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
 ```
 curl "http://159.65.230.32:8983/solr/admin/cores?action=RELOAD&core=[CORE_NAME]"
 ```
+
+# Environment Variables
+
+| Environment variable | Description |
+| -------------------- | ----------- |
+| RAILS_ENV | Sets the Rails environment. <br>Default: `development` |
+| POSTGRES_PASSWORD | Database password for Rails |
+| DATABASE_URL | Database connection string for Rails <br>Format: `postgresql://[POSTGRES_USER]:[POSTGRES_PASSWORD]@[POSTGRES_HOST]:[POSTGRES_PORT]/[DATABASE_PREFIX]?encoding=utf8` <br>Environment will be automatically appended to `DATABASE_PREFIX`. For example, `DATABASE_PREFIX=spotlight` and `RAILS_ENV=development` will use the `spotlight_development` database |
+| GEOLOCATION_DATABASE_URL | Database JDBC connection string used by geolocation Solr plugin <br>Format: `postgresql://[POSTGRES_HOST]/[DATABASE_NAME]?user=[POSTGRES_USER]&password=[POSTGRES_PASSWORD]` |
+| SECRET_TOKEN | Rails secret token |
+| SOLR_URL | Used by Spotlight import management page to display status and import progress <br>Format: `http://solr:8983/solr/[SOLR_CORE]` |
+| IMPORT_TRIGGER_URL | Rails restore endpoint triggered upon successful reindex |
+| FEED_URL | Used by Spotlight import management page to calculate progress |
+| SENTRY_DSN | Sentry.io API URL |
+| UPLOAD_EXTENSIONS | Full list of allowed upload file extensions |
+| IMAGE_EXTENSIONS | Subset of `UPLOAD_EXTENSIONS` for image files |
+| GEOLOCATION_API_KEY | Google Geolocation API Key |
+| SENDGRID_USERNAME | SendGrid username |
+| SENDGRID_PASSWORD | SendGrid password |
+| APP_DOMAIN | FQDN for application |
+| APP_EMAIL | From email for system emails |

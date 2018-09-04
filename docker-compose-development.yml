@@ -14,7 +14,7 @@ services:
       - db
     restart: unless-stopped
     volumes:
-      - app:/app
+      - public:/app/public
   solr:
     build:
       context: ./solr
@@ -37,8 +37,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - app:/app
+      - public:/app/public
 volumes:
   pgdata:
   solrdata:
-  app:
+  public:

@@ -7,7 +7,10 @@ services:
       - pgdata:/var/lib/postgresql/data
     restart: unless-stopped
   app:
-    build: .
+    build:
+      context: .
+      args:
+        RAILS_ENV: "${RAILS_ENV}"
     env_file: .env.staging
     command: bundle exec puma -C config/puma.rb
     depends_on:

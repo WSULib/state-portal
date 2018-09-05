@@ -12,6 +12,8 @@ RUN apk add --no-cache \
 
 # Set an environment variable to store where the app is installed to inside
 # of the Docker image.
+ARG RAILS_ENV
+ENV RAILS_ENV=$RAILS_ENV
 ENV INSTALL_PATH /app
 RUN mkdir -p $INSTALL_PATH
 
@@ -24,4 +26,4 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 COPY . .
-RUN bundle exec rake DATABASE_URL=postgres:does_not_exist assets:precompile
+RUN bundle exec rake RAILS_ENV=$RAILS_ENV DATABASE_URL=postgres:does_not_exist assets:precompile

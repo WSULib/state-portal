@@ -33,19 +33,6 @@ $border-thickness: 3px;
     }
   }
 
-  #header-navbar {
-    .navbar-brand {
-      margin-top: 0;
-
-      @media (max-width: $screen-xs-max) {
-        background-size: 40px;
-        text-indent: 54px;
-        font-size: 18px;
-        padding: 22px 0;
-      }
-    }
-  }
-
   .navbar-top {
     background-color: transparent;
   }

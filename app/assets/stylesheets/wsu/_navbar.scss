@@ -1,5 +1,13 @@
 .navbar-inverse {
   border-bottom: 4px solid $gold;
+
+  .navbar-toggle {
+    margin-top: 23px;
+
+    @media (max-width: $screen-xs-max) {
+      margin-top: 14px;
+    }
+  }
 }
 
 .navbar-top {
@@ -37,13 +45,5 @@
         padding-bottom:30px;
       }
     }
-  }
-}
-
-.navbar-toggle {
-  margin-top: 23px;
-
-  @media (max-width: $screen-xs-max) {
-    margin-top: 14px;
   }
 }

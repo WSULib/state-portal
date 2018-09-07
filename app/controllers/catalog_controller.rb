@@ -120,7 +120,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'language_ssim', label: 'Language'
     config.add_show_field 'data_provider_ssim', label: 'Data Provider', link_to_search: true
     config.add_show_field 'rights_tesim', label: 'Rights'
-    config.add_show_field 'url_ssm', label: 'URL', helper_method: :solr_url_to_link
+    config.add_show_field Spotlight::Engine.config.source_url_field, label: 'URL', helper_method: :solr_url_to_link
 
     config.add_search_field 'all_fields', label: 'Everything'
 

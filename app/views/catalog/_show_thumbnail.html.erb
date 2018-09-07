@@ -9,7 +9,7 @@
 <% elsif has_thumbnail?(@document) %>
   <div class="panel panel-default show-tools">
     <div class="panel-body">
-      <%= image_tag @document[Spotlight::Engine.config.thumbnail_field].first %>
+      <%= link_to image_tag(@document[Spotlight::Engine.config.thumbnail_field].first), @document[Spotlight::Engine.config.source_url_field].first %>
     </div>
   </div>
 <% end %>

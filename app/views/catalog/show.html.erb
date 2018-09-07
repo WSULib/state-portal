@@ -3,6 +3,8 @@
 </div>
 
 <div id="sidebar" class="<%= iiif_link? ? 'col-md-6 col-sm-4' : 'col-md-3 col-sm-4' %>">
-  <%= render :partial => 'show_thumbnail' %>
+  <div class="hidden-xs">
+    <%= render :partial => 'show_thumbnail' %>
+  </div>
   <%= render_document_sidebar_partial %>
 </div>

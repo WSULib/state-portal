@@ -12,3 +12,7 @@ en:
       copyright: 'Wayne State University'
     tools:
       source: 'View Item Record'
+  spotlight:
+    curation:
+      nav:
+        exhibit_home: 'Exhibit Home'

@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def is_gallery_view?
-    :gallery == document_index_view_type
+    :gallery == document_index_view_type && action_name == 'index'
   end
 end

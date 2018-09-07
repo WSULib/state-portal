@@ -10,3 +10,5 @@ en:
       browse: 'Browse'
     footer:
       copyright: 'Wayne State University'
+    tools:
+      source: 'View Item Record'

@@ -1,15 +1,11 @@
+<div class="panel panel-default show-tools">
+  <div class="panel-body">
 <% if iiif_link? %>
-  <div class="panel panel-default show-tools">
-    <div class="panel-body">
-      <div class="uv" data-locale="en-GB:English (GB)" data-config="" data-uri="<%= @document[Spotlight::Engine.config.iiif_field].first %>" data-collectionindex="0" data-manifestindex="0" data-sequenceindex="0" data-canvasindex="0"></div>
-
-      <%= PulUvRails::UniversalViewer.script_tag %>
-    </div>
-  </div>
+    <div class="uv" data-locale="en-GB:English (GB)" data-config="" data-uri="<%= @document[Spotlight::Engine.config.iiif_field].first %>" data-collectionindex="0" data-manifestindex="0" data-sequenceindex="0" data-canvasindex="0"></div>
+    <%= PulUvRails::UniversalViewer.script_tag %>
 <% elsif has_thumbnail?(@document) %>
-  <div class="panel panel-default show-tools">
-    <div class="panel-body">
-      <%= link_to image_tag(@document[Spotlight::Engine.config.thumbnail_field].first), @document[Spotlight::Engine.config.source_url_field].first %>
-    </div>
-  </div>
+    <%= link_to image_tag(@document[Spotlight::Engine.config.thumbnail_field].first), @document[Spotlight::Engine.config.source_url_field].first %>
 <% end %>
+    <%= render partial: 'source' %>
+  </div>
+</div>

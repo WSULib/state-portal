@@ -42,9 +42,6 @@ class CatalogController < ApplicationController
     config.show.document_actions.delete(:sms)
     config.show.document_actions.delete(:citation)
 
-    # Add Link out to source URL
-    config.show.document_actions << :source
-
     ## blacklight-maps configuration default values
     config.view.maps.geojson_field = "geojson_ssim"
     config.view.maps.placename_property = "placename"

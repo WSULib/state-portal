@@ -9,7 +9,7 @@ en:
     home:
       browse: 'Browse'
     footer:
-      copyright: 'Wayne State University'
+      text: 'This portal was funded by a Library Services and Technology Act (LSTA) Collaborative Library Services Grant, administered by the Library of Michigan'
     tools:
       source: 'View Item Record'
   spotlight:

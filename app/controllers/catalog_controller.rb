@@ -80,7 +80,7 @@ class CatalogController < ApplicationController
     # :show may be set to false if you don't want the facet to be drawn in the
     # facet bar
 
-    config.add_facet_field 'data_provider_ssim', label: 'Data Provider', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'data_provider_ssim', label: 'Institution', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'collection_ssim', label: 'Collection', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'language_ssim', label: 'Language', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'type_ssim', label: 'Type', limit: 20, index_range: 'A'..'Z'
@@ -88,6 +88,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'place_ssim', label: 'Place', limit: 20, index_range: 'A'..'Z'
     # config.add_facet_field 'subject', label: 'Subject', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'creator_ssim', label: 'Creator', limit: 20, index_range: 'A'..'Z'
+    config.add_facet_field 'subject_topic_ssim', label: 'Topic', limit: 20, index_range: 'A'..'Z'
     config.add_facet_field 'format_ssim', label: 'Format'
 
     # Have BL send all facet field names to Solr, which has been the default

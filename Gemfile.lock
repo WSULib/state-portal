@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: git://github.com/WSULib/spotlight.git
-  revision: 71403ba30a3de69d81d16d5c4883ffe7b8aca6ff
+  revision: fbb35751486720e2b9f29cd2dfae57d2e3180b59
   branch: master
   specs:
     blacklight-spotlight (2.0.2)
@@ -427,7 +427,7 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.1.0)
       nokogiri (~> 1.8)
-    zip_tricks (4.7.0)
+    zip_tricks (4.7.1)
     zipline (1.0.2)
       curb (>= 0.8.0, < 0.10)
       rails (>= 3.2.1, < 5.3)

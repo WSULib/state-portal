@@ -28,3 +28,7 @@ solr-instance
 # Ignore files with sensitive credentials
 .env*
 !.env.example
+
+
+# Ignore GA view
+/app/views/shared/_analytics.html.erb

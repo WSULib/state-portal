@@ -44,7 +44,6 @@ Spotlight::Engine.config.source_url_field = :url_ssm
 #   OpenStruct.new(field_name: :spotlight_upload_description_tesim, label: 'Description', form_field_type: :text_area),
 #   OpenStruct.new(field_name: :spotlight_upload_attribution_tesim, label: 'Attribution'),
 #   OpenStruct.new(field_name: :spotlight_upload_date_tesim, label: 'Date')
-    OpenStruct.new(field_name: :upload_full_title_tesim, label: 'Title', form_field_type: :text_area),
     OpenStruct.new(field_name: :upload_date_created_dr, label: 'Date Issued', form_field_type: :text_area),
     OpenStruct.new(field_name: :upload_full_image_url_ssm, label: 'Image URL', form_field_type: :text_area),
     OpenStruct.new(field_name: :upload_data_provider_ssim, label: 'Data Provider', form_field_type: :text_area),

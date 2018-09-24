@@ -1,0 +1,31 @@
+---
+# from https://www.geekandi.com/2016/03/08/using-ansible-to-update-linux-distributions/
+- hosts: all
+  become: yes
+  tasks:
+    # This task updates servers that use 'yum' and RPM packages
+    # by looking for CentOS or RedHat as a distribution name. This
+    # will may also pick up modern OracleLinux but OL has a lot of
+    # different strings.
+    - name: .rpm upgrade server
+      yum: >
+        update_cache=yes
+        name=*
+        state=latest
+        update_cache=yes
+      when: >
+        ansible_distribution == 'CentOS'
+        or
+        ansible_distribution == 'RedHat'
+
+    # This task updates servers that use 'apt' and DEB packages
+    # by looking for Debian or Ubuntu as a distribution name.
+    - name: .deb do update and upgrade
+      apt: >
+        update_cache=yes
+        cache_valid_time=1200
+        upgrade=safe
+      when: >
+        ansible_distribution == 'Debian'
+        or
+        ansible_distribution == 'Ubuntu'

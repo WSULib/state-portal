@@ -1,0 +1,57 @@
+---
+
+
+- name: install-docker
+  hosts: all
+  become: yes
+  gather_facts: true
+
+  tasks:
+
+    - name: install pre-reqs for Docker to be installed
+      package:
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ docker_packages }}"
+
+    # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    - name: Add Docker's official GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add specified repository into sources list
+      shell: |
+        sudo add-apt-repository \
+        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) \
+        stable"
+      args:
+        executable: /bin/bash
+
+    - name: Update package lists
+      shell: |
+        apt-get update
+      args:
+        executable: /bin/bash
+
+    - name: install latest version of docker-ce
+      package:
+        name: docker-ce
+        state: latest
+
+    - group:
+       name: admin
+       state: present
+
+    - user:
+       name: "{{ system_username }}"
+       comment: "Portal User"
+       groups: admin,docker
+       shell: /bin/bash
+       password: "{{ system_password | password_hash('sha512') }}"
+       update_password: on_create
+
+    - name: install pexpect
+      shell: |
+        apt-get install -y python-pexpect

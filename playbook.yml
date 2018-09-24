@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  become: yes
+  gather_facts: False
+  pre_tasks:
+    - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+
+- import_playbook: update-upgrade.yml
+- import_playbook: install-docker.yml
+- import_playbook: configure-repo.yml
+- import_playbook: deploy-application.yml

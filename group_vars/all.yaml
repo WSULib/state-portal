@@ -1,0 +1,17 @@
+---
+
+rails_environment: production
+
+docker_packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common
+
+portal_password: password
+
+portal_email: test@test.com
+
+system_username: portal
+
+system_password: password

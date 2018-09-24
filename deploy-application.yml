@@ -1,0 +1,66 @@
+---
+
+
+- name: deploy-application
+  hosts: all
+  become: yes
+  gather_facts: true
+
+  tasks:
+    - name: Deploy application
+      become_user: "{{ system_username }}"
+      shell: |
+        cd /opt/state-portal
+        docker-compose -p spotlight up --no-start
+      args:
+        executable: /bin/bash
+
+    - name: Run DB scripts
+      become_user: "{{ system_username }}"
+      shell: |
+        cd /opt/state-portal
+        docker-compose -p spotlight run app bundle exec rake db:create
+        docker-compose -p spotlight run app bundle exec rake db:migrate
+      args:
+        executable: /bin/bash
+
+    - name: Create initial admin user
+      become_user: "{{ system_username }}"
+      expect:
+        command: docker-compose -p spotlight run app bundle exec rake spotlight:initialize
+        chdir: "/opt/state-portal"
+        responses:
+          .*Email.*: "{{ portal_email }}"
+          .*Password.*: "{{ portal_password }}"
+
+    - name: Create default exhibits
+      become_user: "{{ system_username }}"
+      shell: |
+        cd /opt/state-portal
+        docker-compose -p spotlight run app bundle exec rake db:seed
+      args:
+        executable: /bin/bash
+
+    - name: Deploy the entire application
+      become_user: "{{ system_username }}"
+      shell: |
+        cd /opt/state-portal
+        docker-compose -p spotlight up -d
+      args:
+        executable: /bin/bash
+
+    - name: Copy base configuration files to the Solr container
+      become_user: "{{ system_username }}"
+      shell: |
+        cd /opt/state-portal
+        docker cp -L solr/configsets/um $(docker ps -q -f "name=spotlight_solr"):/opt/solr/server/solr/configsets
+      args:
+        executable: /bin/bash
+
+    - name: Create Solr core
+      become_user: "{{ system_username }}"
+      shell: |
+        cd /opt/state-portal
+        docker exec $(docker ps -q -f "name=spotlight_solr") solr create_core -c portal -d um
+      args:
+        executable: /bin/bash

@@ -51,10 +51,10 @@ If you want to add the field to the search results list:
 * Set up environment variables to remote docker machine: `eval $(docker-machine env spotlight)`
 * Deploy the application: `docker-compose -p spotlight -f docker-compose.yml up --no-start`
 * Create the Postgres database:
-    * `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake db:create`
-    * `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake db:migrate`
-* Create initial admin user: `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake spotlight:initialize`
-* Create default exhibit: `docker-compose -p spotlight -f docker-compose.yml run web bundle exec rake db:seed`
+    * `docker-compose -p spotlight -f docker-compose.yml run app bundle exec rake db:create`
+    * `docker-compose -p spotlight -f docker-compose.yml run app bundle exec rake db:migrate`
+* Create initial admin user: `docker-compose -p spotlight -f docker-compose.yml run app bundle exec rake spotlight:initialize`
+* Create default exhibit: `docker-compose -p spotlight -f docker-compose.yml run app bundle exec rake db:seed`
 * Run the application in production mode: `docker-compose -p spotlight -f docker-compose.yml up -d`
 
 ## Initialize Solr core

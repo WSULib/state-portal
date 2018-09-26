@@ -1,0 +1,47 @@
+---
+
+
+- name: configure-repo
+  hosts: all
+  become: yes
+  gather_facts: true
+
+  tasks:
+    - name: Clone Portal Github repository
+      shell: |
+        git clone https://github.com/WSULib/state-portal.git /opt/state-portal
+
+    - name: chown directory
+      shell: |
+        chown -R portal:portal /opt/state-portal
+
+    - name: Copy env config file to .env.production
+      copy:
+        src: .env
+        dest: /opt/state-portal/.env.{{ rails_environment }}
+        owner: portal
+        group: portal
+        mode: 0644
+
+    - name: Copy env config file to reside in remote server
+      copy:
+        src: .env
+        dest: /opt/state-portal/.env
+        owner: portal
+        group: portal
+        mode: 0644
+
+    - name: Copy docker-compose config file
+      copy:
+        src: docker-compose-{{ rails_environment }}.yml
+        dest: /opt/state-portal/docker-compose.yml
+        owner: portal
+        group: portal
+        mode: 0644
+
+    - name: Install Docker compose
+      shell: |
+        sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/bin/docker-compose
+        sudo chmod +x /usr/bin/docker-compose
+      args:
+        executable: /bin/bash

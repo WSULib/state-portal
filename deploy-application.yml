@@ -14,6 +14,10 @@
         docker-compose -p spotlight up --no-start
       args:
         executable: /bin/bash
+    
+    - name: Wait for application to come online
+      pause:
+        seconds: 15
 
     - name: Run DB scripts
       become_user: "{{ system_username }}"

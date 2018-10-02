@@ -53,6 +53,10 @@
       args:
         executable: /bin/bash
 
+    - name: Wait for application to fully deploy
+      pause:
+        seconds: 10
+
     - name: Copy base configuration files to the Solr container
       become_user: "{{ system_username }}"
       shell: |

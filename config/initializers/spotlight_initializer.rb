@@ -40,25 +40,11 @@ Spotlight::Engine.config.iiif_field = :iiif_url_ssm
 Spotlight::Engine.config.source_url_field = :url_ssm
 
 # ==> Uploaded item configuration
- Spotlight::Engine.config.upload_fields = [
+# Spotlight::Engine.config.upload_fields = [
 #   OpenStruct.new(field_name: :spotlight_upload_description_tesim, label: 'Description', form_field_type: :text_area),
 #   OpenStruct.new(field_name: :spotlight_upload_attribution_tesim, label: 'Attribution'),
 #   OpenStruct.new(field_name: :spotlight_upload_date_tesim, label: 'Date')
-    OpenStruct.new(field_name: :upload_date_created_dr, label: 'Date Issued', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_full_image_url_ssm, label: 'Image URL', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_data_provider_ssim, label: 'Data Provider', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_place_ssim, label: 'Place', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_url_ssm, label: 'URL', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_type_ssim, label: 'Type', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_genre_ssim, label: 'Subject Genre', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_language_ssim, label: 'Language', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_publisher_ssim, label: 'Publisher', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_subject_topic_ssim, label: 'Subject Topic', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_collection_ssim, label: 'Collection', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_rights_tesim, label: 'Rights', form_field_type: :text_area),
-    OpenStruct.new(field_name: :upload_note_tesim, label: 'Notes', form_field_type: :text_area)
-
- ]
+# ]
 # Spotlight::Engine.config.upload_title_field = nil # OpenStruct.new(...)
 # Spotlight::Engine.config.uploader_storage = :file
 Spotlight::Engine.config.allowed_upload_extensions = ENV['UPLOAD_EXTENSIONS'].split(' ')

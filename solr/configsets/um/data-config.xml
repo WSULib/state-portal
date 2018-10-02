@@ -2,11 +2,12 @@
   <dataSource type="edu.stsci.registry.solr.OAIPMHDataSource"/>
   <document onImportEnd="edu.stsci.registry.solr.ImportEndListener">
     <entity name="record"
-            url="http://oai.michiganservicehub.org/OAIHandler"
+            url="http://combine.michiganservicehub.org/combine/oai"
             processor="edu.stsci.registry.solr.OAIPMHEntityProcessor"
             forEach="/OAI-PMH/ListRecords/record"
             prefix="MODS"
-            idCol="identifier">
+            idCol="identifier"
+            set="portal">
 
       <field column="identifier" xpath="header/identifier"/>
       <field column="set" xpath="header/setSpec"/>

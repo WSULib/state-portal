@@ -3,7 +3,7 @@
 ## Deployment Instructions
 
 ## AUTOMATED DEPLOYMENT
-* Clone repo. Install ansible on client machine. Run ansible deployment script. See wiki for details on this process (Preferred deployment method).
+* Clone repo. Install ansible on client machine. Run ansible deployment script. See [wiki](../../wiki) for details on this process. NB: This is the preferred deployment process.
 
 ## MANUAL DEPLOYMENT
 ### (OPTIONAL SECTION)
@@ -31,10 +31,48 @@
 
 # Server Management
 
-List containers: `docker ps`
-SSH into container: `docker exec -t -i $(docker ps -q -f "name=spotlight_solr") /bin/bash`
-Create Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c blacklight-core -d spotlight`
-Delete Solr core: `docker exec -it $(docker ps -q -f "name=spotlight_solr") solr delete -c blacklight-core`
+```
+List containers status (2 ways listed below)
+docker ps -a
+docker container ls
+
+Print your docker configuration file to the screen and list variables that are supposed to be inherited from .env file
+docker-compose config
+
+Stop all running containers.
+docker stop $(docker ps -aq)
+
+Kill all running containers.
+docker kill $(docker ps -aq)
+
+Remove all containers.
+docker rm $(docker ps -aq)
+
+Remove all images.
+docker rmi $(docker images -q)
+
+Tail log output for selected docker container
+docker logs --follow spotlight_web_1
+
+SSH (or run whatever command) in selected container
+docker exec -it <container name> /bin/bash
+
+Build and deploy all containers
+docker-compose -p spotlight -f docker-compose.yml up --build -d
+
+Stop all containers and Docker internal network
+docker-compose -p spotlight down
+
+Rebuild selected container to reflect latest changes (to remote Github repos and any changes in /opt/state-portal)
+docker-compose -p spotlight -f docker-compose.yml up --build -d [CONTAINER_NAME]
+
+Create Solr core
+docker exec -it $(docker ps -q -f "name=spotlight_solr") solr create_core -c portal -d spotlight
+
+Delete Solr core
+docker exec -it $(docker ps -q -f "name=spotlight_solr") solr delete -c portal
+
+```
 
 # Adding a new configset
 

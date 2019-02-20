@@ -1,49 +1,15 @@
 # Michigan Service Hub State Portal Project
 
-## Environment Setup
+## Deployment Instructions
 
-* Install gems: `bundle install`
-* Setup database:
-    * Create database: `rake db:create`
-    * Create tables: `rake db:migrate`
-* Setup Solr:
-    * Build OAIPMH-Solr plugin: `mvn package`
-    * Create plugin folder in `solr-instance` directory: `mkdir -p ./solr-instance/contrib/oaipmh/lib`
-    * Copy plugin jar to the plugin lib folder
-    
-## Running the environment
+## AUTOMATED DEPLOYMENT
+* Clone repo. Install ansible on client machine. Run ansible deployment script. See wiki for details on this process (Preferred deployment method).
 
-* Run Solr server: `bundle exec solr_wrapper`
-* Optional: index some test data: `rake solr:marc:index_test_data`
-* Run application: `rails server` 
-
-## Importing data
-
-* Visit the [Data Import](http://127.0.0.1:8983/solr/#/blacklight-core/dataimport//dataimport) page
-* Execute the import
-
-# Adding a field to the dataset
-
-* Add field to import config: `data-config.xml`
-* Add field to schema: `schema.xml`
-* Add field to index or show page: `catalog_controller.rb`
-
-If you want to add the field to the search results list:
-
-* Add field to `solrconfig.xml` in the `fl` section for the search requestHandler
-
-* Reindex all the data
-    * Delete the Solr `blacklight-core`
-    * Restart Solr to regenerate the core
-    * Reindex the data: `http://127.0.0.1:8983/solr/#/blacklight-core/dataimport//dataimport`
-
-# Server Docker setup
-
-## Installation
-
+## MANUAL DEPLOYMENT
+### (OPTIONAL SECTION)
 * [Install Docker Machine](https://docs.docker.com/machine/install-machine/)
 * Setup passwordless sudo for the [generic Docker Machine driver](https://docs.docker.com/machine/drivers/generic/)
-* Create the Docker Machine on the server: `docker-machine create --driver generic --generic-ip-address=159.65.230.32 --generic-ssh-key ~/.ssh/id_rsa --generic-ssh-user=portal spotlight`
+* Create the Docker Machine on the server: `docker-machine create --driver generic --generic-ip-address=PUT_YOUR_IP_HERE --generic-ssh-key ~/.ssh/id_rsa --generic-ssh-user=portal spotlight`
 * Check if the machine you created exists: `docker-machine env spotlight`
 
 ## Initial setup
@@ -102,6 +68,18 @@ curl -X POST -H 'Content-type:application/json' --data-binary '{
 ```
 curl "http://159.65.230.32:8983/solr/admin/cores?action=RELOAD&core=[CORE_NAME]"
 ```
+# Adding a field to the dataset
+
+* Add field to import config: `data-config.xml`
+* Add field to schema: `schema.xml`
+* Add field to index or show page: `catalog_controller.rb`
+
+If you want to add the field to the search results list:
+
+* Add field to `solrconfig.xml` in the `fl` section for the search requestHandler
+
+* Reindex all the data
+    * Reindex the data using either Solr DataImport handler inside the Solr app or trigger within Portal admin page
 
 # Environment Variables
 

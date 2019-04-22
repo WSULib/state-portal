@@ -11,10 +11,10 @@
 * Setup passwordless sudo for the [generic Docker Machine driver](https://docs.docker.com/machine/drivers/generic/)
 * Create the Docker Machine on the server: `docker-machine create --driver generic --generic-ip-address=PUT_YOUR_IP_HERE --generic-ssh-key ~/.ssh/id_rsa --generic-ssh-user=portal spotlight`
 * Check if the machine you created exists: `docker-machine env spotlight`
+* Set up environment variables to remote docker machine: `eval $(docker-machine env spotlight)`
 
 ## Initial setup
 
-* Set up environment variables to remote docker machine: `eval $(docker-machine env spotlight)`
 * Deploy the application: `docker-compose -p spotlight -f docker-compose.yml up --no-start`
 * Create the Postgres database:
     * `docker-compose -p spotlight -f docker-compose.yml run app bundle exec rake db:create`

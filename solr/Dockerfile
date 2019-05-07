@@ -1,4 +1,4 @@
-FROM solr
+FROM solr:7.7
 
 RUN mkdir -p /opt/solr/contrib/oaipmh/lib
 ADD plugins /opt/solr/contrib/oaipmh/lib

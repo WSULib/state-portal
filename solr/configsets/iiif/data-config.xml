@@ -2,12 +2,11 @@
   <dataSource type="edu.stsci.registry.solr.OAIPMHDataSource"/>
   <document onImportEnd="edu.stsci.registry.solr.ImportEndListener">
     <entity name="record"
-            url="http://combine.michiganservicehub.org/combine/oai"
+            url="http://saison.umdl.umich.edu/combine/oai"
             processor="edu.stsci.registry.solr.OAIPMHEntityProcessor"
             forEach="/OAI-PMH/ListRecords/record"
             prefix="MODS"
-            idCol="identifier"
-            set="iiif">
+            idCol="identifier">
 
       <field column="identifier" xpath="header/identifier"/>
       <field column="set" xpath="header/setSpec"/>
@@ -17,7 +16,7 @@
       <field column="data_provider_ssim" xpath="metadata/mods/recordInfo/recordContentSource"/>
       <field column="url_ssm" xpath="metadata/mods/location/url[@usage='primary']"/>
       <field column="full_image_url_ssm" xpath="metadata/mods/location/url[@access='preview']"/>
-      <field column="iiif_url_ssm" xpath="metadata/mods/location/url[@access='iiif']"/>
+      <field column="iiif_url_ssim" xpath="metadata/mods/location/url[@note='iiif-manifest']"/>
 
       <field column="collection_ssim" xpath="metadata/mods/relatedItem[@type='host']/titleInfo/title"/>
       <field column="language_ssim" xpath="metadata/mods/language/languageTerm"/>
@@ -43,5 +42,5 @@
       <field column="note_tesim" xpath="metadata/mods/note"/>
     </entity>
   </document>
-</dataConfig> 
+</dataConfig>
 
